@@ -1,0 +1,259 @@
+update command
+==============
+It is used to update the records which is present in a database table.
+
+syntax:
+-------
+	update <table_name> set <col_name> where condition;
+ex:
+	update student set sname='rani' where sno=101;
+
+	update student set sname='alan' where sadd='hyd';
+
+	update student set sno=501,sname='jojo' where sadd is null;
+
+
+Note:
+----
+	If we won't use where clause then all rows will be updated.
+	
+	update student set sno=101;
+
+delete command
+==============
+It is used to delete the records from database table.
+
+syntax:
+--------
+	delete from <table_name> where condition;
+
+ex:
+	delete from student where sno=101;
+
+	delete from student where sname='ramulu';
+
+	delete from student where sadd='vizag';
+
+Note:
+-----
+	If we won't use where clause then all rows will be deleted.
+	
+	delete from student;
+	delete from emp;
+	delete from dept;
+
+Note:
+------
+	All DML commands are temperory.
+
+
+Interview Queries
+-----------------
+
+Q)Write a query to terminate all the employees whose salary is greater then 40000?
+
+	delete from emp where esal>40000;
+
+
+Q)Write a query to promote all employees from clerk to salesman?
+
+	update emp set job='salesman' where job='Clerk';
+
+
+Logical Operators
+==================
+Logical operators are used to declare more then one condition in a query.
+
+We have three types of logical operators.
+
+1) AND 
+
+2) OR 
+
+3) NOT 
+
+1) AND
+--------
+It will return the records only if all conditions are true.
+
+Here both conditions must be from same row only.
+
+ex:
+	select * from emp where eid=201 AND ename='Alan';
+
+	select * from emp where eid=201 AND ename='Nelson';  // No rows selected 
+
+	select * from emp where eid=209 AND ename='jojo'; // No rows selected 
+
+2) OR 
+------
+It will return the records only if one condition is true.
+
+Here both conditions can be from any row.
+
+ex:
+	select * from emp where eid=201 OR ename='Alan';    // 1 records 
+
+	select * from emp where eid=201 OR ename='Nelson';  // 2 records 
+
+	select * from emp where eid=209 OR ename='jojo';    // no rows selected 
+
+3) NOT 
+-------
+It will return the records except the condition.
+
+A '<>' symbol denoted as NOT operator.
+
+ex:
+---
+	select * from student where NOT sno=101;
+
+	select * from student where  sno<>101;
+
+	select * from dept where NOT deptno=10;
+	
+	select * from student where sadd<>'hyd';
+
+
+Interview Queries
+-----------------
+
+Q) Write a query to display employees information whose employee id is 201,202 and 203?
+
+	select * from emp where eid=201 OR eid=202 OR eid=203;
+
+
+Q) Write a query to display employees information whose salary is greater then 20000 and 
+   less then 40000?
+
+	select * from emp where esal>20000 AND esal<40000;
+
+
+Q)Write a query to display employees information who are not working in 20 department?
+
+	select * from emp where deptno<>20;
+
+BETWEEN operator
+================
+It is used to return the records those who are in the range of values.
+
+In between operator first we need to write lower limit then higher limit.
+
+Between operator we can use only for numbers.
+
+Between operator will take the support of AND operator.
+
+ex:
+	select * from emp where eid between 201 AND 206;	
+
+	select * from emp where deptno between 10 AND 30;
+
+	select * from emp where esal between 20000 AND 40000;
+
+
+IN operator
+============
+IN operator is a replacement of OR operator.
+
+IN operator will return the records those who are matching in the list of values.
+
+ex:
+	select * from emp where eid IN(201,202,203);
+
+	select * from emp where ename IN('Alan','Nelson','Ana');
+
+	select * from emp where deptno IN(10,20,30);
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

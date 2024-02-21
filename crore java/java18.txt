@@ -1,0 +1,910 @@
+4)
+4 4 4 4 
+3 3 3 3
+2 2 2 2 
+1 1 1 1 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=4;i>=1;i--)
+		{
+			//columns
+			for(int j=1;j<=4;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+5)
+A A A A 
+B B B B
+C C C C 
+D D D D 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(char i='A';i<='D';i++)
+		{
+			//cols
+			for(char j='A';j<='D';j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+6)
+D D D D 
+C C C C 
+B B B B 
+A A A A 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(char i='D';i>='A';i--)
+		{
+			//cols
+			for(char j='A';j<='D';j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+7)
+* * * * 
+*     *
+*     *
+* * * * 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				if(i==1 || i==4 || j==1 || j==4)
+					System.out.print("* ");
+				else
+					System.out.print("  ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+8)
+* - - -
+- * - - 
+- - * - 
+- - - * 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				if(i==j)
+					System.out.print("* ");
+				else
+					System.out.print("- ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+9)
+* - - - *
+- * - * -
+- - * - - 
+- * - * -
+* - - - *
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=5;i++)
+		{
+			//cols
+			for(int j=1;j<=5;j++)
+			{
+				if(i==j || i+j==6)
+					System.out.print("* ");
+				else
+					System.out.print("- ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+10)
+
+1             1
+1 2         2 1 
+1 2 3     3 2 1 
+1 2 3 4 4 3 2 1 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int rows=4;
+
+		//rows
+		for(int i=1;i<=rows;i++)
+		{
+			//left side elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(j+" ");
+			}
+			//space
+			for(int j=1;j<=(rows-i)*2;j++)
+			{
+				System.out.print("  ");
+			}
+			//right side elements
+			for(int j=i;j>=1;j--)
+			{
+				System.out.print(j+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+Left Side elements
+==================
+1)
+1
+2 2 
+3 3 3 
+4 4 4 4
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+2)
+4 4 4 4 
+3 3 3 
+2 2 
+1 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=4;i>=1;i--)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+3)
+*
+* *
+* * *
+* * * *
+* * *
+* * 
+* 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println("");
+		}
+
+		//descending order 
+		//rows
+		for(int i=3;i>=1;i--)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+4)
+1
+2 3 
+4 5 6
+7 8 9 0
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int k=1;
+
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=i;j++)
+			{
+				if(k<=9)
+					System.out.print(k+" ");
+				else
+					System.out.print("0 ");
+				k++;
+			}
+			//new line
+			System.out.println("");
+		}
+
+		
+	}
+}
+
+
+Right Side loop pattern
+======================
+1)
+      1
+    2 2
+  3 3 3 
+4 4 4 4 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+
+			//right side elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+
+	}
+}
+
+2)
+4 4 4 4
+  3 3 3 
+    2 2 
+      1
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=4;i>=1;i--)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+
+			//right side elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+
+	}
+}
+
+3)
+      *
+    * * 
+  * * *  
+* * * *
+  * * *
+    * * 
+      * 
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+
+			//right side elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println("");
+		}
+		//Descending
+		//rows
+		for(int i=3;i>=1;i--)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+
+			//right side elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println("");
+		}
+
+	}
+}
+
+Pyramid loop patterns
+=====================
+1)
+      
+      1
+    1 2 1
+  1 2 3 2 1 
+1 2 3 4 3 2 1 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//
+		for(int i=1;i<=4;i++)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			//left side
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(j+" ");
+			}
+			//right side
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print(j+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+
+	}
+}
+
+2)
+1 2 3 4 3 2 1
+  1 2 3 2 1 
+    1 2 1 
+      1
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//
+		for(int i=4;i>=1;i--)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			//left side
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(j+" ");
+			}
+			//right side
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print(j+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+
+	}
+}
+
+3)
+      * 
+    * * * 
+  * * * * * 
+* * * * * * *
+  * * * * *
+    * * * 
+      * 
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			//left side
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//right side
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println("");
+		}
+		//descending
+		//rows
+		for(int i=3;i>=1;i--)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			//left side
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//right side
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println("");
+		}
+
+	}
+}
+
+Assignment
+==============
+1)
+
+1 1 1 
+1 0 1 
+1 1 1 
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=3;i++)
+		{
+			//cols
+			for(int j=1;j<=3;j++)
+			{
+				if(i==2 && j==2)
+					System.out.print("0 ");
+				else
+					System.out.print("1 ");
+			}
+			//new line
+			System.out.println("");
+		}
+
+	}
+}
+
+2)
+
+    *
+    * 
+* * * * * 
+    *
+    * 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=5;i++)
+		{
+			//cols
+			for(int j=1;j<=5;j++)
+			{
+				if(i==3 || j==3)
+					System.out.print("* ");
+				else
+					System.out.print("  ");
+			}
+			//new line
+			System.out.println("");
+		}
+
+	}
+}
+
+3)
+
+2
+3  5 
+7  11 13
+17 19 23 29
+ 
+
+4)Jump Statement
+================
+Jump statement is used to jump from one section of code to another section.
+
+We have two jump statements.
+
+i) break statement
+
+ii) continue statement 
+
+i) break statement
+--------------------
+It is used to break the execution of loops and switch case.
+
+For conditional statements we can use if condition.
+
+syntax:
+	break;
+
+
+ex:1
+-----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		break;
+		System.out.println("stmt2");
+	}
+}
+o/p:
+	C.T.E : break outside switch or loop
+
+
+ex:2
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(true)
+		{
+			break;
+		}
+		System.out.println("stmt2");
+	}
+}
+o/p:
+	C.T.E : break outside switch or loop
+
+ex:3
+------
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=10;i++)
+		{
+			if(i==5)
+			{
+				break;
+			}
+			System.out.print(i+" ");//1 2 3 4
+		}
+	}
+}
+
+
+ii) continue statement 
+----------------------
+It is used to continue the execution of loops.
+
+For conditional statement we can use if condition.
+
+syntax
+	continue;
+
+ex:1
+-----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		continue;
+		System.out.println("stmt2");
+	}
+}
+o/p:
+	continue outside of loop
+
+ex:2
+-----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(!false)
+		{
+			continue;
+		}
+		System.out.println("stmt2");
+	}
+}
+o/p:
+	continue outside of loop
+
+ex:3
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=10;i++)
+		{
+			if(i==5)
+			{
+				continue;
+			}
+			System.out.print(i+" ");//1 2 3 4 6 7 8 9 10
+		}
+	}
+}
+
+
+Arrays
+========
+In a normal variable we can store only one value at a time.
+
+To store more then one value in a single variable then we need to use Arrays.
+
+Array is a collection of homogeneous data elements.
+
+The main advantages of arrays are.
+
+1) We can represent multiple elements using single variable name.
+   ex:
+	int[]  arr={10,20,30};
+
+2) Performance point of view arrays are recommanded to use.
+
+The main disadvantages of arrays are.
+
+1) Arrays are fixed in size , once if we create an array there is no chance 
+   of increasing or decreasing the size of an array.
+
+2) To use array concept in advanced we should know what is the size of an 
+   array which is always not possible.
+
+In java , Arrays are classified into three types.
+
+1)Single Dimensional Array
+
+2)Double Dimensional Array / Two Dimensional Array 
+
+3)Multi Dimensional Array / Three Dimensional Array 
+
+Array Declaration
+---------------
+At the time of array declaration we should not specify array size.
+
+				Arrays
+		|------------------|-------------------------|
+Single Dimensional Array   Double Dimensional Array 	MultiDimensional Array
+
+int[] arr;			int[][] arr;		int[][][] arr;
+int  []arr;			int  [][]arr;		int  [][][]arr;
+int  arr[];			int  arr[][];		int arr[][][];
+				int[] []arr;		int[][]  []arr;
+				int[]  arr[];		int[][]  arr[];
+				int   []arr[];		int[]  [][]arr;
+							int[]  arr[][];
+							int[]  []arr[];
+							int  [][]arr[];
+							int  []arr[][];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

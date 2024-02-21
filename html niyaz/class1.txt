@@ -1,0 +1,272 @@
+HTML5
+======
+HTML stands for Hypertext Markup language.
+
+It is widely used language on web to develop web pages and web applications.
+
+It is developed by Burners Lee in late 1991.
+
+It is a case insensitive language.
+
+It is a tag based language.
+ex:
+	<html> 
+
+Every tag contains opening tag and closing tag.
+ex:
+	<html>  -- opening tag 
+	</html> -- closing tag 
+
+Every tag contains attributes and each attribute contains attribute name and attribute value.
+ex:
+	<body  bgcolor="red">
+
+Tag may contains multiple attributes and each attribute seperated with space.
+ex:
+	<body  bgcolor="red"  background="image">
+
+HTML file is know as HTML document.
+
+All HTML document we need to save with .html or .htm extension.
+
+All HTML documents execute in a browser window.
+
+ex:
+	Chrome 
+	Mozilla
+	Edge
+	Opera 
+	IE
+	and etc.
+
+We will use following editors to write HTML code.
+ex:
+	Notepad
+	Notepad++
+	Sublime 
+	VSC 
+	Dreamviewer and etc.
+
+A simple HTML document is also known as component.
+
+HTML is used to develop client side components.
+
+HTML 2.0 was released in the year of 1995.
+
+HTML 4.0 was released in the year of 1999.
+
+HTML5 which is a extension of HTML4 was released in 2012.
+
+The main objective of HTML5 is used to develop light weight component.
+
+HTML5 is also known as advanced hypertext markup language.
+
+HTML skeleton 
+==============
+
+HTML
+-----
+<!DOCTYPE> 
+<html>
+	<head>
+		- 
+		- // head related tags 
+		- 
+	</head>
+	<body>
+		-
+		- // body related tags
+		-
+	</body>
+</html>
+
+
+HTML5
+------
+<!DOCTYPE html> 
+<html>
+	<head>
+		- 
+		- // head related tags 
+		- 
+	</head>
+	<body>
+		-
+		- // body related tags
+		-
+	</body>
+</html>
+
+Note:
+----
+<!DOCTYPE> represent HTML document.
+<!DOCTYPE html> represent HTML5 document.
+
+<html>
+-------
+A <html> tag is a root tag for entire HTML document.
+
+<head> 
+------
+A <head> tag is used to declare following things.
+ex:
+	title of a web page
+	favicon of a web page 
+	styles
+	scripts 
+
+<body>
+-----
+A <body> tag is used to declare actual content of a web page.
+ex:
+	images
+	forms
+	tables
+	lists
+	and etc.
+
+First HTML Document
+===================
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+		Welcome to HTML classes	
+	</body>
+</html>
+
+Q)How can we add title to a web page?
+
+To add title of a web page we need to use <title> tag.
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB TALENT</title>
+	</head>
+	<body>
+		Welcome to HTML classes	
+	</body>
+</html>
+
+
+Q)How to add favicon to a web page?
+
+A <link> tag is used to add favicon on a web page.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB TALENT</title>
+		<link rel="icon" href="ihub.jpg">
+	</head>
+	<body>
+		Welcome to HTML classes	
+	</body>
+</html>
+
+
+Q)How to change the background color in html?
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB TALENT</title>
+		<link rel="icon" href="ihub.jpg">
+	</head>
+	<body bgcolor="yellow">
+		Welcome to HTML classes	
+	</body>
+</html>
+
+Q)How to set the background image in html?
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>IHUB TALENT</title>
+		<link rel="icon" href="ihub.jpg">
+	</head>
+	<body background="bg.jpg">
+		
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

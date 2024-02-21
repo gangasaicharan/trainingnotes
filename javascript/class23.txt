@@ -1,0 +1,507 @@
+document.getElementById()
+=========================
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<fieldset id="cur_id">
+		<legend>Current Address:</legend>
+		<table align="center">
+			<tr>
+				<td>House No:</td>
+				<td><input type="text" id="t1"/></td>
+			</tr>
+			<tr>
+				<td>Locality:</td>
+				<td><input type="text" id="t2"/></td>
+			</tr>
+			<tr>
+				<td>State:</td>
+				<td><input type="text" id="t3"/></td>
+			</tr>
+		</table>
+		</fieldset>
+		<br>
+
+		<input type="checkbox" id="box" onclick="f1()" />
+		Permanent Address same as Current Address?
+
+		<br>
+		<br>
+
+		<fieldset id="per_id">
+		<legend>Permanent Address:</legend>
+		<table align="center">
+			<tr>
+				<td>House No:</td>
+				<td><input type="text" id="t4"/></td>
+			</tr>
+			<tr>
+				<td>Locality:</td>
+				<td><input type="text" id="t5"/></td>
+			</tr>
+			<tr>
+				<td>State:</td>
+				<td><input type="text" id="t6"/></td>
+			</tr>
+		</table>
+		</fieldset>
+
+		<script type="text/javascript">
+			function f1()
+			{
+				if(document.getElementById('box').checked)
+				{
+					var val1=document.getElementById('t1').value;
+					var val2=document.getElementById('t2').value;
+					var val3=document.getElementById('t3').value;
+
+					document.getElementById('t4').value=val1;	
+					document.getElementById('t5').value=val2;	
+					document.getElementById('t6').value=val3;
+				}
+				else
+				{
+					document.getElementById('t4').value="";	
+					document.getElementById('t5').value="";	
+					document.getElementById('t6').value="";
+				}	
+			}
+		</script>
+
+</body>
+</html>
+
+
+document.getElementsByName()
+============================
+The getElementsByName() method returns a collection of elements with a specified name.
+
+ex:1
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		Name: <input type="text" name="t1"/> 
+
+		<button onclick="f1()"> click </button>
+		<br>
+		<h1 id="result"> </h1>
+
+		<script>
+			function f1()
+			{
+				var name=document.getElementsByName('t1')[0].value;
+
+				document.getElementById('result').innerHTML=name;
+			}
+		</script>
+		
+</body>
+</html>
+
+ex:2
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		Name: <input type="text" name="t1"/> 
+
+		<button onclick="f1()"> click </button>
+		<br>
+		<h1 id="result"> </h1>
+
+		<script>
+			function f1()
+			{
+				var name=document.getElementsByName('t1')[0].tagName;
+
+				document.getElementById('result').innerHTML=name;
+			}
+		</script>
+		
+</body>
+</html>
+
+
+ex:3
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		First Name: <input type="text" name="t1"/> 
+		Last Name: <input type="text" name="t1"/> 
+		<button onclick="f1()"> click </button>
+		<br>
+		<h1 id="result"> </h1>
+
+		<script>
+			function f1()
+			{
+				var name=document.getElementsByName('t1').length;
+
+				document.getElementById('result').innerHTML=name;
+			}
+		</script>
+		
+</body>
+</html>
+
+ex:4
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<h2>Course Completed?</h2>
+		<button onclick="f1()">Select All</button>
+		<br>
+		<input type="checkbox" name="box" value="html"/> HTML <br>
+		<input type="checkbox" name="box" value="css"/> CSS <br>
+		<input type="checkbox" name="box" value="js"/> JavaScript <br>
+		<input type="checkbox" name="box" value="bs"/> Bootstrap <br>
+		<script>
+			
+			function f1()
+			{
+				var x=document.getElementsByName('box');
+
+				for(var i=0;i<x.length;i++)
+				{
+					if(x[i].type="checkbox")
+					{
+						x[i].checked=true;
+					}
+				}
+
+			} 
+
+		</script>
+</body>
+</html>
+
+
+document.getElementsByTagName()
+===============================
+The getElementsByTagName() method returns a collection of all elements with a specified tag name.
+
+ex:1
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		Name : <input type="text" name="t1" id="t1"/>
+
+		<button onclick="f1()"> click </button>
+
+		<h1 id="result"></h1>	
+
+		<script>
+			function f1()
+			{
+				var name=document.getElementsByTagName('input')[0].value;
+				document.getElementById('result').innerHTML=name;
+			}
+		</script>
+</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<div> This is div1 </div>
+		<div> This is div2 </div>
+		<div> This is div3 </div>
+
+		<button onclick="f1()"> change </button>	
+
+		<script>
+			function f1()
+			{
+				var x=document.getElementsByTagName('div');
+				x[0].innerHTML="This is change1";
+				x[1].innerHTML="This is change2";
+				x[2].innerHTML="This is change3";
+			}
+		</script>
+</body>
+</html>
+
+ex:3
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+		<div> This is div1 </div>
+		<div> This is div2 </div>
+		<div> This is div3 </div>
+
+		<button onclick="f1()"> change </button>	
+
+		<script>
+			function f1()
+			{
+				var x=document.getElementsByTagName('div');
+				x[0].style.textAlign="center";
+				x[1].style.color="blue";
+				x[2].style.backgroundColor="yellow";
+			}
+		</script>
+</body>
+</html>
+
+document.getElementsByClassName()
+==================================
+The getElementsByClassName() method returns a collection of child elements with a given class name. 
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		.c1
+		{
+			text-align: center;
+			color:blue;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+		<div class="c1"> This is Division Tag </div>
+
+		<button onclick="f1()"> click </button>
+
+		<h1 id="result"></h1>
+
+		<script>
+			
+			function f1()
+			{
+				var name=document.getElementsByClassName('c1').length;
+				document.getElementById('result').innerHTML=name;
+			}
+
+		</script>
+		
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		.c1
+		{
+			text-align: center;
+			color:blue;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+		<div class="c1"> This is Division Tag </div>
+
+		<button onclick="f1()"> click </button>
+
+		<h1 id="result"></h1>
+
+		<script>
+			
+			function f1()
+			{
+				var x=document.getElementsByClassName('c1');
+				x[0].innerHTML="This is css";
+				x[0].style.backgroundColor="cyan";
+			}
+
+		</script>
+		
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

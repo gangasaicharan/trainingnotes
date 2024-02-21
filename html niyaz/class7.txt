@@ -1,0 +1,240 @@
+Q) What is the difference between HTML and HTML5 ?
+
+HTML						HTML5
+--------					-----
+To represent html document we need to use 	To represent html5 document we need to use 
+<!DOCTYPE>. 					<!DOCTYPE html>. 
+
+HTML is bit slow.				HTML5 is more faster because it is light
+						weight.
+
+It is inflexible for the programmer.		It is flexible for the programmer.
+
+It does not support drag and drop menu.		It supports drag and drop menu.
+
+It is less mobile friendly.			It is more mobile friendly.
+
+It does not allow to execute javascript.	It allows to execute javascript 
+						with help of JS Web work API.  
+
+We can't play audio and video without using	We can play audio and video with the help
+flash player.					<audio> and <video> tag without using flash
+						player.
+
+Vector graphics is possible by using 		Vector graphics is possible by using 
+technologies VML, silver light , adope flash 	internal technologies like SVG and CANVAS.
+and etc.
+
+It can't handle inaccurate errors.		It can handle inaccurate errors.
+
+Shapes like circle, rechtangle , polygon	Shapes like circle, rectangle, polygon
+and etc are not easy to draw.			and etc are easy to draw.
+
+
+
+Q) What is the difference between <div> tag and <span> tag ?
+
+div					span
+-------					------
+It is a block element.			It is a inline element.
+
+It is used to wrap the sections.	It is used to wrap the small portion of a text, 
+					images and etc.	
+
+It is used to develop css based layouts.It is used to stylize the text.
+
+
+Q)What is the disadvantages of HTML5?
+
+1) It is used to develop static web pages but not dynamic web pages.
+
+2) Security features are not good.
+
+3) For simple design we need to do lot of code.
+
+4) If code is increases then it will increase the complexity.
+
+
+
+
+How to HTML document will execute in a browser window
+=====================================================
+Diagram: class7.1
+
+HTML parse will parse the data from HTML document and it will give to DOM.
+
+DOM stands for Document Object Mode.
+
+DOM is present in a browser window.
+
+DOM will convert our HTML document to Tree Node structure.
+
+Late, Tree Node structure will execute in a browser window.
+
+
+CSS
+=====
+CSS stands for Cascading Styles Sheet.
+
+CSS is used to apply the styles on elements.
+
+The latest version of CSS3 was introduced in 2001.
+
+The main objective of CSS3 are.
+
+1) To set the positioning of an element.
+
+2) To apply the styles to describe how an element should look like.
+
+3) To perform some sort of animations.
+
+syntax:
+-------
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			-
+			-
+			-
+		</style>
+	</head>
+	<body>
+		
+	</body>
+</html>
+Note:
+-----
+	Here style wil cascade from head to body.
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				color:#0000ff;
+				background-color:#FFFF00;
+			}
+				
+		</style>
+	</head>
+	<body>
+			<h1>This is Heading Tag</h1>
+	</body>
+</html>
+
+ex:2
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			body
+			{
+				background-color:#00FF00;
+			}
+			h1
+			{
+				color:#0000ff;
+				font-size:50px;
+			}
+				
+		</style>
+	</head>
+	<body>
+			<h1>This is Heading Tag</h1>
+	</body>
+</html>
+
+CSS syntax
+============
+CSS syntax contains selector and declaration block.
+ex:
+	selector 
+	|
+	h1{color:#0000ff;font-size:50px;}
+	  |-----------------------------|
+			|
+		declaration block 
+
+CSS declaration block may contains multiple CSS properties.
+
+Each css property contains property name and property value seperated with colon.
+
+Each property ends with semicolon.
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

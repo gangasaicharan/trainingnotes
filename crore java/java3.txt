@@ -1,0 +1,204 @@
+Java
+======
+JDK			:	1.8
+
+Version			:	Java 8
+
+Creator			:	James Gosling 
+
+Vendor			:	Oracle Corporation 
+
+Open source		:	Open source 
+
+website			:	www.oracle.com/in/java 
+
+Download link 		:	
+https://drive.google.com/file/d/16fr2McV_Bex0NYlOdcVfC4k2gwUUNqzq/view?usp=drive_link
+
+
+Steps to setup java environmental variables
+==============================================
+step1:
+------
+	Make sure JDK 1.8 software installed successfully.
+
+step2:
+----
+	Copy "lib" directory from "Java_Home" folder.
+	ex:
+		C:\Program Files\Java\jdk1.8.0_181\lib
+
+step3:
+------
+	Paste "lib" directory in environmental variables.
+	ex:
+		Right to my computer/pc --> properties --> advanced system settings
+		---> environment variables --> 
+
+		user variables --> click to new button -->
+
+		variable name : CLASSPATH 
+		variable value: C:\Program Files\Java\jdk1.8.0_181\lib; --> ok.
+
+		system variables --> click to new button  -->
+
+		variable name :  path 
+		variable value : C:\Program Files\Java\jdk1.8.0_181\bin;
+		
+		-->ok -->ok -->ok.
+
+step4:
+------
+	Check environmental variables setup done perfectly or not.
+	ex:
+		cmd> javap  (Basic commands)
+
+		cmd> java  -version 
+
+Steps to develop first application in java
+===========================================
+step1:
+------
+	Make sure JDK 1.8 version installed successfully.
+
+step2:
+------
+	Make sure setup for environmental variables done perfectly.
+
+step3:
+-----
+	Create a "javaprog" folder in 'E' drive.
+
+step4:
+----
+	Open the notepad and write simple Hello World program.
+	ex:
+	class  Test
+	{
+		public static void main(String[] args)
+		{
+			System.out.println("Hello World");
+		}	
+	}
+
+step5:
+-----
+	Save above program with same name as class name inside javaprog folder.
+
+step6:
+-------
+	Open the command prompt from javaprog location.
+
+step7:
+------
+	Compile the above program by using below command.
+	ex:
+		cmd/javaprog> javac   Test.java
+					|			
+					filename 
+
+step8:
+------
+	Execute the above program by using below command.
+	ex:
+		cmd/javaprog> java    Test 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

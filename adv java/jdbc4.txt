@@ -1,0 +1,295 @@
+Type4 JDBC Driver / Native protocol  (Thin driver)
+===================================================
+Type4 JDBC driver is not designed to take the support of ODBC driver and Vendor DB library.
+
+It is designed to interact with database software directly.
+
+Diagram: jdbc4.1 
+
+Advantages:
+
+> It will give better performance when compare to Type1 and type2 jdbc driver.
+
+> It is suitable for medium and large scale projects.Hence it is a industry 
+  standard driver.
+
+> This driver is completely developed in java so it will give platform     independency.
+
+> Type4 jdbc driver will not take the support of ODBC driver and vendor db
+  library.
+
+> Since ODBC driver and vendor db library not present at client side so it is
+ suitable to perform untrusted applets to database communication.
+
+Disadvantages:
+
+> For every database we need to arrange type4 jdbc driver seperately. 
+
+> It is not a built-in driver of JDK.
+
+JDBC Connection pool
+=====================
+It is a factory containing set of readily available JDBC Connections objects before actual being used.
+
+JDBC Connection pool represent connectivity with same database software.
+
+Diagram: jdbc4.2
+
+Advantages:
+
+> It will create reusable JDBC Connection objects.
+
+> With minimum number of JDBC Connection objects we can interact with multiple
+  clients.
+
+> A user is not resposible to create, manage or destroy JDBC Connection   objects.A JDBC Connection pool is responsible to create,manage and destroy   JDBC Connection objects.
+
+
+Type3 JDBC Driver Architecture / Net protocol 
+=============================================
+Web server, proxy server or IDE's server contains JDBC Connection pool representing reusable JDBC Connection objects.
+
+Type3  JDBC driver is not designed to interact with database software directly.
+
+It is designed to interact with web server, proxy server or IDE's server to get one reusable JDBC Connection object from jdbc connection pool.
+
+Diagram: jdbc4.3
+
+With respect to the diagram:
+-----------------------------
+1) Web server will interact with database software and gets JDBC Connection
+   objects in JDBC Connection pool.
+
+2) Our application uses type3 jdbc driver to interact with web server or proxy   server and gets one reusable JDBC Connection object.
+
+3) Our application uses JDBC connection object to create other JDBC Connection
+   objects.
+
+4) Once if we call con.close() then JDBC Connection object goes back to 
+   JDBC Connection pool.
+
+Q)Types of Connection objects in JDBC?
+
+We have two types Connection objects.
+
+1)Direct JDBC Connection object 
+--------------------------
+A JDBC Connection object which is created by the user is called direct JDBC Connection object.
+ex:
+	Class.forName("driver-classname");
+	Connection con=DriverManager.getConnection("url","username","pwd");
+
+2)Pooled JDBC Connection object 
+--------------------------------
+A JDBC Connection object which is gathered from JDBC Connection pool.
+
+Types of Statement objects
+============================
+We have three Statement objects in JDBC.
+
+1)Simple Statement object 
+-------------------------
+It is an object of underlying supplied java class which implements java.sql.Statement interface.
+
+2)PreparedStatement object 
+---------------------------
+It is an object of underlying supplied java class which implements java.sql.PreparedStatement interface.
+
+3)CallableStatement object 
+--------------------------
+It is an object of underlying supplied java class which implements 
+java.sql.CallableStatement interface.
+
+
+
+SQL Injection problem
+======================
+Along with input values if we pass special SQL instructions which change the behaviour of a query and behaviour of an application is called SQL injection problem.
+
+Here special SQL instructions means comments in SQL i.e --.
+
+While dealing with Simple Statement object there is a chance of raising 
+SQL injection problem.
+
+ex:
+	username:  raja'-- 
+	password:  hyd 
+
+	Valid Credentials 
+
+ex:
+---
+
+userlist table
+----------------
+drop table userlist;
+create table userlist(uname varchar2(10),pwd varchar2(10));
+insert into userlist values('raja','rani');
+insert into userlist values('king','kingdom');
+commit;
+
+ex:
+---
+ex:
+---
+package com.ihub.www;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class SQLInjProbApp 
+{
+	public static void main(String[] args)throws Exception 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the username :");
+		String name=sc.next();
+		System.out.println("Enter the password :");
+		String pass=sc.next();
+		
+		//converting string inputs according to sql query
+		name="'"+name+"'";
+		pass="'"+pass+"'";
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+		Statement st=con.createStatement();
+		
+		String qry="select count(*) from userlist where uname="+name+" and pwd="+pass;
+
+		ResultSet rs=st.executeQuery(qry);
+		int cnt=0;
+		while(rs.next())
+		{
+			cnt=rs.getInt(1);
+		}
+		if(cnt==0)
+			System.out.println("Invalid Credentials");
+		else
+			System.out.println("Valid Credentials");
+		
+		rs.close();
+		st.close();
+		con.close();
+	}
+}
+
+
+Limitations with Simple Statement object
+========================================
+> It is not suitable to execute same query for multiple times.
+
+> We can't use string values directly to query parameter without any   conversion.
+
+> Framing query with variables is quit complex.
+
+> It raises SQL injection problem.
+
+> It does not allow us to insert Date values to database table column.
+
+> It does not allow us to insert LOB values to database table column. 
+
+To overcome this limitations we need to use PreparedStatement object.
+
+Pre-compiled SQL Query
+=======================
+Our query will goes to database software without input values and becomes parsed query, either it is executed or not is called precompiled SQL query.
+
+PreparedStatement object deals with pre-compiled SQL query.
+
+
+Working with PreparedStatement object
+=====================================
+
+Q) Write a JDBC application to insert a record into student table?
+
+package com.ihub.www;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.util.Scanner;
+
+public class PSInsertApp 
+{
+	public static void main(String[] args)throws Exception 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the student no  :");
+		int no=sc.nextInt();
+		System.out.println("Enter the student name :");
+		String name=sc.next();
+		System.out.println("Enter the student address :");
+		String add=sc.next();
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","admin");
+	
+		String qry="insert into student values(?,?,?)";
+		
+		PreparedStatement ps=con.prepareStatement(qry);
+		
+		//set the values to query parameters or placeholders.
+		ps.setInt(1,no);
+		ps.setString(2,name);
+		ps.setString(3,add);
+		
+		//execute 
+		int result=ps.executeUpdate();
+		if(result==0)
+			System.out.println("No Record inserted");
+		else
+			System.out.println("Record inserted");
+		
+		ps.close();
+		con.close();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+

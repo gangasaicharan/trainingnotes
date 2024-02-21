@@ -1,0 +1,374 @@
+Javascript OOPS 
+===============
+OOPS stands for Object oriented Programming System/Structure.
+
+A technology is said to be object oriented if it support following features.
+
+ex:
+	class 
+	object 
+	abstraction
+	encapsulation
+	inheritance
+	and 
+	polymorphism. 
+
+Javascript is not a object oriented programming language. It is a object based programming language because javascript contains objects like Arrays,Strings,RegEx, Date and etc. 
+
+
+class
+======
+It is a template for an object.
+
+In javascript, class will not consider as an object.
+
+To declare a class we need to use class keyword following by any perticular name.
+
+As per naming conventions in javascript , A class name must starts with uppercase letter.
+
+ex:
+	class  Example
+	{
+		-
+		-
+		-	
+	}
+
+
+constructor
+============
+A constructor is a special function which is used to initialized or create an object.
+
+A constructor will be called when memory is allocated.
+
+To declare a constructor we will use constructor keyword.
+
+A class can have only constructor.
+
+ex:
+	class  Example
+	{
+		constructor()
+		{
+			-
+			-
+			-
+		}	
+	}
+
+object
+--------
+Object is an entity which is having state and behaviours (properties and functions).
+
+To create object in javascript we will use new keyword.
+
+syntax:
+	var  ref_var=new Object_name();
+ex:
+	var  e = new Example();
+
+ex:1
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+			<script>
+				
+				class Example
+				{
+					constructor()
+					{
+						document.writeln("constructor <br>");
+					}	
+				}
+				var e1=new Example();
+				var e2=new Example();	
+			</script>
+				
+		
+	</body>
+</html>
+
+ex:2
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+			<script>
+				
+				class Example
+				{
+					constructor(id,name,sal)
+					{
+						document.writeln("Employee Id :"+id+"<br>");
+						document.writeln("Employee Name :"+name+"<br>");
+						document.writeln("Employee Salary :"+sal+"<br>");
+					}	
+				}
+				var e1=new Example(101,'Alan',10000);
+				var e2=new Example(102,'Jose',20000);	
+			</script>
+				
+		
+	</body>
+</html>
+
+Abstraction
+===========
+Hiding internal implementation and highlighting the set of services is called abstraction.
+ex:
+	The best example of abstraction is GUI ATM machine where bank people will hide internal 
+	implementation and highlights the set of services like banking,withdrawl,mini stmt and etc.
+
+
+Encapsulation
+=============
+The process of encapsulating or grouping  properties and it's associate functions is called encapsulation.
+
+In encapsulation for every property we need to declare setter and getter methods.
+
+ex:1
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+			<script>		
+				class Example
+				{
+					//setter method 
+					setId(id)
+					{
+						this.id=id;
+					}		
+					setName(name)
+					{
+						this.name=name;
+					}
+					setSalary(sal)
+					{
+						this.sal=sal
+					}
+
+					//getter methods
+					getId()
+					{
+						return this.id;
+					}
+					getName()
+					{
+						return this.name;
+					}
+					getSalary()
+					{
+						return this.sal;
+					}
+				}
+				var e=new Example();
+				e.setId(201);
+				e.setName("Lara");
+				e.setSalary(10000);
+
+				document.writeln("Employee Id :"+e.getId()+"<br>");
+				document.writeln("Employee Name :"+e.getName()+"<br>");
+				document.writeln("Employee Salary :"+e.getSalary()+"<br>");
+					
+			</script>
+				
+		
+	</body>
+</html>
+
+ex:2
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+			<script>		
+				class Example
+				{
+					constructor(id,name,sal)
+					{
+						this.id=id;
+						this.name=name;
+						this.sal=sal;
+					}
+
+					//getter methods
+					getId()
+					{
+						return this.id;
+					}
+					getName()
+					{
+						return this.name;
+					}
+					getSalary()
+					{
+						return this.sal;
+					}
+				}
+				var e=new Example(301,"Nelson",20000);
+
+				document.writeln("Employee Id :"+e.getId()+"<br>");
+				document.writeln("Employee Name :"+e.getName()+"<br>");
+				document.writeln("Employee Salary :"+e.getSalary()+"<br>");
+					
+			</script>
+				
+		
+	</body>
+</html>
+
+
+Inheritance
+============
+Inheritance is a mechanism where one class will inherit the properties of another class.
+
+or 
+
+Inheritance is a mechanism where one class will derive in the presence of another class.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+			<script>		
+				
+				class A 
+				{
+					f1()
+					{
+						document.writeln("A-F1 Function <br>");
+					}	
+				}
+				class B extends A  
+				{
+					f2()
+					{
+						document.writeln("B-F2 Function <br>");
+					}	
+				}	
+				var a=new A();
+				a.f1();
+
+				var b=new B();
+				b.f1();
+				b.f2();
+			</script>
+				
+				
+		
+	</body>
+</html>
+
+Polymorphism
+==============
+Polymorphism has take from Greek word.
+
+Poly means many and morphism means forms.
+
+The ability to represent in different forms is called polymorphism.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+			<script>		
+				
+				class A 
+				{
+					display()
+					{
+						document.writeln("A-class <br>");	
+					}	
+				}
+				class B extends A  
+				{
+					display()
+					{
+						document.writeln("B-class <br>");	
+					}		
+				}	
+				var a=new A();
+				a.display(); // A-class
+
+				var b=new B();
+				b.display(); // B-class
+				
+			</script>
+				
+				
+		
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

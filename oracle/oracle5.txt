@@ -1,0 +1,348 @@
+2)Scalar Functions 
+===================
+Scalar functions are applicable for single row.
+
+We have four types of scalar functions.
+
+i) Character functions 
+
+ii) Number functions 
+
+iii) Date functions 
+
+iv) Conversion functions 
+
+i) Character functions 
+-----------------------
+upper()
+-------
+	It will convert lowercase to uppercase.
+	ex:
+		select upper('oracle') from dual;
+
+lower()
+-------
+	It will convert uppercase to lowercase.
+	ex:
+		select lower('ORACLE') from dual;
+
+initcap()
+---------
+	It will display the output in initial letter capital.
+	ex:
+		select initcap('oracle training') from dual;
+
+lpad()
+------
+	It is used to pad the characters towards left side.
+	ex:
+		select lpad('oracle',10,'z') from dual;	//zzzzoracle
+	
+rpad()
+-------
+	It is used to pad the characters towards right side.
+	ex:
+		select rpad('oracle',10,'z') from dual; //oraclezzzz
+
+ltrim()
+-------
+	It is used to trim the characters from left side.
+	ex:
+		select ltrim('zzoraclezz','z') from dual;
+
+rtrim()
+-------
+	It is used to trim the characters from right side.
+	ex:
+		select rtrim('zzoraclezz','z') from dual;
+
+trim()
+------
+	It is used to trim the characters from both the sides.
+	ex:
+		select trim('z' from 'zzoraclezz') from dual;
+
+concat()
+-------
+	It is used to concate the output.
+	ex:
+		select concat('mega','star') from dual;
+
+		select concat(concat('mega','star'),'chiru') from dual;
+
+
+Note:
+-----
+
+Q)Write a query to display employee id , employee name ,employee salary and job from emp table?
+
+	select eid, upper(ename) as ENAME, esal, lower(job) as JOB from emp;
+
+
+ii) Number functions 
+----------------------
+abs()
+----
+	It will return absoluate value.
+	ex:
+		select abs(-20) from dual; // 20
+		select abs(-10.5) from dual; //10.5
+		select abs(50) from dual; //50
+
+sqrt()
+-------
+	It will return square root value.
+	ex:
+		select sqrt(25) from dual; // 5 
+		select sqrt(36) from dual; //6
+		select sqrt(37) from dual; //6.08
+		
+
+power(A,B)
+---------
+	It will return power value.
+	ex:
+		select power(2,3) from dual; //2*2*2 = 8 
+		select power(5,3) from dual; //5*5*5 = 125
+
+ceil()
+-------
+	It will return ceil value.
+	ex:
+		select ceil(10.5) from dual;//11
+
+		select ceil(8.3) from dual; //9 
+
+floor()
+------
+	It will return floor value.
+	ex:
+		select floor(10.5) from dual;//10
+
+		select floor(8.3) from dual; //8
+
+round()
+--------
+	It will take nearest value.
+	ex:
+		select round(10.5) from dual; // 11
+		select round(10.4) from dual; // 10
+
+trunc()
+-------
+	It is used to remove the decimals.
+	ex:
+		select trunc(10.56) from dual; //10
+
+		select trunc(-19.56) from dual; // -19
+
+greatest()
+-----------
+	It will display greatest value.
+	ex:
+		select greatest(10,20,30) from dual;
+
+least()
+-------
+	It will display least value.
+	ex:
+		select least(10,20,30) from dual;
+
+
+Working with Date values
+========================
+Every database software supports different date patterns.
+
+We need to insert date value in that format which is supported by underlying database software.
+
+ex:
+	Oracle --->  dd-MMM-yy
+	MySQL  --->  yyyy-MM-dd
+	and etc.	
+
+
+drop table emp1;
+
+create table emp1(eid number(3),ename varchar2(10), edoj date);
+
+insert into emp1 values(301,'Alan','01-JAN-22');
+
+insert into emp1 values(302,'Jose',sysdate);
+
+insert into emp1 values(303,'Nelson',current_date);
+
+insert into emp1 values(304,'Jack','15-JAN-21');
+
+commit;
+
+
+iii)Date functions
+------------------
+ADD_MONTHS()
+--------------
+	We can add the months in a given date.
+	ex:
+		select ADD_MONTHS(sysdate,5) from dual;	//21-APR-24	
+		
+
+MONTHS_BETWEEN()
+---------------
+	It will return exact months between two given dates.
+	ex:
+		select MONTHS_BETWEEN('01-JAN-23','01-NOV-23') from dual; //-10
+
+		select abs(MONTHS_BETWEEN('01-JAN-23','01-NOV-23')) from dual; //10
+
+		select abs(MONTHS_BETWEEN('01-JAN-23','21-NOV-23')) from dual; //10.64	
+
+NEXT_DAY()
+--------
+	It will return given day in a week.
+	ex:
+		select NEXT_DAY(sysdate,'SUNDAY') from dual;
+
+		select NEXT_DAY(sysdate,'TUESDAY') from dual;
+
+
+LAST_DAY()
+-----------
+	It will return last date of a month.
+	ex:
+		select LAST_DAY(sysdate) from dual;
+		select LAST_DAY('16-DEC-23') from dual;
+
+iv) Conversion functions
+-----------------------
+Convertion function is used to convert from one type to another type.
+ex:
+	TO_CHAR() 
+
+TO_CHAR() function having two pseudos
+
+a) number to_char()
+--------------------
+	It will acccept 9 in digits and '$' or Euros symbol.
+	ex:
+		select eid,ename,esal from emp;
+		
+		select eid,ename,TO_CHAR(esal,'9,999') from emp;
+		select eid,ename,TO_CHAR(esal,'99,999') from emp;
+		select eid,ename,TO_CHAR(esal,'$99,999') from emp;
+		select eid,ename,TO_CHAR(esal,'$99,999') as ESAL from emp;
+
+
+b) date to_char() 
+------------------
+	ex:
+		select TO_CHAR(sysdate,'dd-MM-yyyy') from dual;
+
+		select TO_CHAR(sysdate,'yyyy-MM-dd') from dual;
+
+		select TO_CHAR(sysdate,'day') from dual; //tuesday
+		
+		select TO_CHAR(sysdate,'dy') from dual;//tue
+	
+		select TO_CHAR(sysdate,'month') from dual; //november
+		
+		select TO_CHAR(sysdate,'mon') from dual;//nov
+
+		select TO_CHAR(sysdate,'year') from dual; //twenty twenty three
+		
+		select TO_CHAR(sysdate,'dd') from dual; //21
+		
+		select TO_CHAR(sysdate,'mm') from dual;//11
+
+		select TO_CHAR(sysdate,'yyyy') from dual; //2023
+
+		select TO_CHAR(sysdate,'HH:MI:SS') from dual;
+
+		select TO_CHAR(sysdate,'dd-MM-yyyy HH:MI:SS') from dual;
+
+
+Group by clause
+===============
+It will divide the rows into multiple groups so that we can apply group functions.
+
+In group by clause we can use same column name which we used in select clause.
+
+Q)Write a query to display sum of salary of each department?
+
+	select sum(esal),deptno from emp group by deptno;
+
+
+Q)Write a query to display average salary of each job?
+
+	select avg(esal),job from emp group by job;	
+
+Q)Write a query to display highest salary of each department?
+
+	select max(esal),deptno from emp group by deptno;
+
+Q)Write a query to display highest salary of each deparment except 10 department?
+
+	select max(esal),deptno from emp where deptno<>10 group by deptno;
+
+
+Having clause
+=============
+It is used to filter the rows from group by clause.
+
+Having clause we need to use after group by clause.
+
+Q)Write a query to display sum of salary of each deparment whose sum of salary is greater then
+  45000?
+
+	select sum(esal),deptno from emp group by deptno having sum(esal)>45000;
+
+
+Q)Write a query to display maximum salary of each job whose maximum salary is less then 
+30000?
+
+	select max(esal),job from emp group by job having max(esal)<30000;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

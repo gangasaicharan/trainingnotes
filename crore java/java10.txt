@@ -1,0 +1,284 @@
+Main Method
+===========
+Our program contains main method or not.
+
+Either it is properly declared or not.It is not a responsibility of a compiler to check.
+
+It is a liability of a JVM to look for main method always at runtime.
+
+JVM always look for main method with following signature.
+
+ex:
+	public  static void main(String[] args)
+
+If we perform any changes in above signature then we will get runtime error called main method not found.
+
+public:
+-------
+	JVM wants to call main method from anywhere.
+
+static:
+-------
+	JVM wants to call this method without using object reference.
+void:
+-----
+	Main method does not return anything to JVM.
+
+main:
+-----
+	It is a identifier given to main method.
+
+String[] args:
+--------------
+	It is a command line argument.	
+
+We can perform following changes in main method.
+
+1)Order of modifiers are not important  incase of public static we can take
+  static public also.
+  ex:
+	static public void main(String[] args)
+
+
+2)We can change String[] in following acceptable formats.
+  ex:
+	public static void main(String[] args)
+	public static void main(String  []args)
+	public static void main(String args[])
+	
+3)We can change String[] with var-arg parameter.
+  ex:
+	public static void main(String... args)
+
+4)We can replace args with any java valid identifier.
+  ex:
+	public static void main(String[] ihub)
+
+5)Main method will accept following modifiers.
+  ex:
+	synchronized
+	strictfp
+	final 	
+
+Command Line Arguments
+======================
+Arguments which are passing through command prompt such type of arguments are called command line arguments.
+
+In command line arguments we need to pass out input values at runtime command.
+
+ex:
+	javac   Test.java
+
+	java    Test  101  raja  m  1000.0
+			|   |	 |	|___ args[3]
+			|   |	 |__________ args[2]
+			|   |_______________ args[1]			
+			|___________________ args[0]
+
+ex:
+---
+class Test
+{
+	public static void main(String[] args)
+	{
+		System.out.println(args[0]);
+		System.out.println(args[1]);
+		System.out.println(args[2]);
+		System.out.println(args[3]);	
+	}
+}
+o/p:
+	javac   Test.java
+	java    Test  101 raja m 1000.0
+
+
+System.out.println()
+====================
+It is a output statement in java.
+
+Whenever we want to display any data or user defined statements then we need to use System.out.println().
+
+syntax:
+-------
+	static variable 
+		|
+	System.out.println()
+	|		|
+	predefined	predefined method 
+	final 
+	class 
+
+Diagram: java10.1
+
+ex:
+----
+class Test
+{
+	public static void main(String[] args)
+	{
+		System.out.println("stmt1");
+		System.out.print("stmt2");
+		System.out.printf("stmt3");	
+	}
+}
+
+various ways to display the data or custom messages in java
+-----------------------------------------------------------
+1)
+	System.out.println("Hello World");
+
+
+2)
+	int i=10;
+	System.out.println(i); //10
+	System.out.println("The value is ="+i);//The value is =10	
+
+3)  	int i=10,j=20;
+	System.out.println(i+" "+j);//10  20
+	System.out.println(i+" and "+j);//10 and 20
+
+4)
+	int i=10,j=20,k=30;
+	System.out.println(i+" "+j+" "+k);
+	
+
+Java Source File Structure
+===========================
+
+case:1
+-------
+A java program can have multiple classes.
+
+If a java program contains multiple classes then we need to check which class contains main method and that class will treated as main class.
+
+ex:
+	B.java
+	----------
+	class A
+	{
+		-
+	}
+	class B 
+	{
+		public static void main(String[] args)
+		{
+			-
+		}	
+	}
+
+case:2
+------
+A java program can have multiple cases with main method then we can save that program name with any name.
+
+ex:
+	Ihub.java
+	-----------
+	class A
+	{
+		public static void main(String[] args)
+		{
+			System.out.println("A-class");	
+		}
+	}
+	class B
+	{
+		public static void main(String[] args)
+		{
+			System.out.println("B-class");	
+		}
+	}
+	class C
+	{
+		public static void main(String[] args)
+		{
+			System.out.println("C-class");	
+		}
+	}	
+	If we compile above program we will get three .class files i.e 
+	A.class, B.class and C.class.
+	ex:
+		javac   Ihub.java
+
+		java   A
+		java   B
+		java   C  
+
+case 3:
+-------- 
+If a java program contains multiple classes with main method then we need to declare any one class as public and that public class will treated as main class.
+
+ex:
+
+	A.java
+	-----------
+	public class A
+	{
+		public static void main(String[] args)
+		{
+			System.out.println("A-class");	
+		}
+	}
+	class B
+	{
+		public static void main(String[] args)
+		{
+			System.out.println("B-class");	
+		}
+	}
+	class C
+	{
+		public static void main(String[] args)
+		{
+			System.out.println("C-class");	
+		}
+	}	
+	If we compile above program we will get three .class files i.e 
+	A.class, B.class and C.class.
+	ex:
+		javac   A.java
+
+		java   A
+		java   B
+		java   C  
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

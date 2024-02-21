@@ -1,0 +1,615 @@
+Q)What is difference between HTML tag and HTML element?
+
+HTML tag
+--------
+HTML tag starts with '<' symbol and ends with '>' symbol.
+ex:
+	<html>,<head>,<body>,<h1> and etc.
+
+HTML element
+-----------
+HTML element defines opening tag, some content and closing tag.
+ex:
+	<h1> This is heading tag </h1>
+	<p> This is paragraph tag </p>
+
+
+Q)What is the different between block elements and inline elements?
+
+block elements
+-------------
+A block elements always start with new line.
+
+They will occupy 100% of width.
+
+ex:
+	<h1> , <p> , <div> and etc
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<h1> This is heading tag </h1>
+		<p> This is paragraph tag </p>
+		<div> This is division tag </div>
+	</body>
+</html>
+
+inline elements
+----------------
+Inline elements starts with same line.
+
+They will occupy width as much as required.
+
+ex:
+	<b>,<i>,<span> and etc.
+
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<b>This is bold tag</b>
+		<i>This is italic tag</i>
+		<span>This is span tag</span>
+	</body>
+</html>
+
+
+Q)Types of tags in HTML ?
+
+We have two types of tags in HTML.
+
+1) Paired Tags  / Container Tags 
+----------------------------------
+Paired tag contains opening tag and closing tag.
+ex:
+	<html>, <head>, <body> , <title> and etc.
+
+
+2) Unpaired Tags  / Empty Tags
+------------------------------
+Unpaired  tag contains only opening and does not have any closing tag.
+ex:
+	<br> , <hr>, <img> , <link>  and etc.
+
+
+Q) Types of list in HTML ?
+
+We have three types of list in HTML.
+
+1) Ordered list 
+
+2) Unordered list 
+
+3) Description list 
+
+
+1) Ordered list 
+---------------
+A <ol> tag is used to represent ordered list with numeric and alphabet.
+
+Order list contains list of items.
+
+Each list of item we can represent by using <li> tag.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Courses:
+		<ol>
+			<li>ReactJS</li>
+			<li>AngularJS</li>
+			<li>VueJS</li>
+			<li>ExpressJS</li>
+			<li>NodeJS</li>
+			<li>NextJS</li>
+		</ol>
+	</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Courses:
+		<ol start="101">
+			<li>ReactJS</li>
+			<li>AngularJS</li>
+			<li>VueJS</li>
+			<li>ExpressJS</li>
+			<li>NodeJS</li>
+			<li>NextJS</li>
+		</ol>
+	</body>
+</html>
+
+ex:
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Courses:
+		<ol type="a">
+			<li>ReactJS</li>
+			<li>AngularJS</li>
+			<li>VueJS</li>
+			<li>ExpressJS</li>
+			<li>NodeJS</li>
+			<li>NextJS</li>
+		</ol>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Courses:
+		<ol type="A">
+			<li>ReactJS</li>
+			<li>AngularJS</li>
+			<li>VueJS</li>
+			<li>ExpressJS</li>
+			<li>NodeJS</li>
+			<li>NextJS</li>
+		</ol>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Courses:
+		<ol type="i">
+			<li>ReactJS</li>
+			<li>AngularJS</li>
+			<li>VueJS</li>
+			<li>ExpressJS</li>
+			<li>NodeJS</li>
+			<li>NextJS</li>
+		</ol>
+	</body>
+</html>
+
+2) Unordered list
+-----------------
+A <ul> tag is used to represent unordered list with bullets.
+
+Unorder list contains list of items.
+
+Each list of item we can represent by using <li> tag.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Courses:
+		<ul type="disc">
+			<li>ReactJS</li>
+			<li>AngularJS</li>
+			<li>VueJS</li>
+			<li>ExpressJS</li>
+			<li>NodeJS</li>
+			<li>NextJS</li>
+		</ul>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Courses:
+		<ul type="circle">
+			<li>ReactJS</li>
+			<li>AngularJS</li>
+			<li>VueJS</li>
+			<li>ExpressJS</li>
+			<li>NodeJS</li>
+			<li>NextJS</li>
+		</ul>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Courses:
+		<ul type="square">
+			<li>ReactJS</li>
+			<li>AngularJS</li>
+			<li>VueJS</li>
+			<li>ExpressJS</li>
+			<li>NodeJS</li>
+			<li>NextJS</li>
+		</ul>
+	</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Courses:
+		<ul type="none">
+			<li>ReactJS</li>
+			<li>AngularJS</li>
+			<li>VueJS</li>
+			<li>ExpressJS</li>
+			<li>NodeJS</li>
+			<li>NextJS</li>
+		</ul>
+	</body>
+</html>
+
+3)Description list
+-------------------
+A <dl> tag is used to represent description list.
+
+A description list contains description term and description definition.
+
+A <dt> tag is used to represent description term.
+
+A <dd> tag is used to represent description definition.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<dl>
+			<dt>HTML5</dt>
+			<dd>
+				HTML5 is a advanced hypertext markup language 
+				which is used to develop light weight components
+				to design interactive static web pages and web 
+				applications.
+			</dd>
+		</dl>
+	</body>
+</html>
+
+
+HTML Forms
+==========
+HTML forms are used to accept the values from the user.
+
+It will send the data to database or server for processing.
+
+To create a form in html we need to use <form> tag.
+
+We have following list of form components.
+ex:
+	Label
+	TextField
+	Buttons 
+	Checkbox
+	RadioButton 
+	textarea
+	select box
+	and etc.
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<form>
+			<label>Name:</label>
+			<input type="text" name="t1"/>	
+			<br>
+			<label>Password:</label>
+			<input type="password" name="t2"/>
+			<br>
+			<label>Age:</label>
+			<input type="number" name="t3"/>
+			<br>
+			<label>DOB:</label>
+			<input type="date" name="t4"/>	
+			<br>
+			<label>Gender:</label>
+			<input type="radio" value="male" name="t5"/>MALE
+			<input type="radio" value="female" name="t5"/>FEMALE
+			<br>
+			<label>Maritial Status:</label>
+			<input type="checkbox" value="married" name="t6"/>MARRIED
+			<input type="checkbox" value="single" name="t6"/>SINGLE	
+			<br>
+			<label>Qualification:</label>
+			<select name="t7">
+				<option value="">none</option>	
+				<option value="b.tech">B.Tech</option>	
+				<option value="b.sc">B.SC</option>
+				<option value="b.com">B.COM</option>		
+			</select>
+			<br>
+			<label> Address : <label>
+			<textarea name="t8" rows="5" cols="10"></textarea>
+			<br>
+			<input type="reset" value="reset"/>
+			<input type="submit" value="submit"/>	
+		</form>
+	</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<form>
+			<label>Name:</label>
+			<input type="text" name="t1" autocomplete="off" required/>	
+			<br>
+			<label>Password:</label>
+			<input type="password" name="t2" required/>
+			<br>
+			<label>Age:</label>
+			<input type="number" name="t3" required/>
+			<br>
+			<label>DOB:</label>
+			<input type="date" name="t4" required/>	
+			<br>
+			<label>Gender:</label>
+			<input type="radio" value="male" name="t5"/>MALE
+			<input type="radio" value="female" name="t5"/>FEMALE
+			<br>
+			<label>Maritial Status:</label>
+			<input type="checkbox" value="married" name="t6"/>MARRIED
+			<input type="checkbox" value="single" name="t6"/>SINGLE	
+			<br>
+			<label>Qualification:</label>
+			<select name="t7">
+				<option value="">none</option>	
+				<option value="b.tech">B.Tech</option>	
+				<option value="b.sc">B.SC</option>
+				<option value="b.com">B.COM</option>		
+			</select>
+			<br>
+			<label> Address : <label>
+			<textarea name="t8" rows="5" cols="10"></textarea>
+			<br>
+			<input type="reset" value="reset"/>
+			<input type="submit" value="submit"/>	
+		</form>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

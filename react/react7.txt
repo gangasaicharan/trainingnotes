@@ -1,0 +1,442 @@
+React useContext Hook (Context API)
+======================================
+Context provides a way to pass the data through the component tree without 
+passing  props down manually at several level.
+
+To do this without Context, we will need to pass the state(useState) as "props" through each nested component. This is called "props drilling".
+
+Diagram: react7.1
+
+
+Project  structure
+--------------------
+myapp12
+|
+|------node-modules
+|
+|------public
+|	|
+|	|------favicon.ico
+|	|------index.html 
+|	|------manifest.json
+|
+|------src
+	|
+	|------index.js
+	|------App.js 
+	|------Acomponent.js 
+	|------Bcomponent.js
+	|------Ccomponent.js
+|
+|------package.json
+|------README.md
+
+Diagram:  react7.2
+
+step1:
+-------
+	create a react project.
+	ex:
+		Reactprojects> npx create-react-app myapp12
+
+step2:
+-----
+	Open the VSC editor.
+	ex:
+		Reactprojects> code . 
+
+step3:
+---
+	Move/Jump to myapp10 project.
+	ex:
+		Reactprojects> cd myapp12
+
+step4:
+-----
+	Run the myapp10 project.
+	ex:
+		Reactprojects/myapp12> npm start
+
+
+App.js
+------------
+import React from 'react';
+import Acomponent from "./Acomponent";
+export const UseContext=React.createContext();
+function App()
+{
+    
+    return (
+        <div>
+            <UseContext.Provider value={'IHUB'}>
+            <Acomponent/>
+            </UseContext.Provider>
+           
+        </div>
+    )
+}
+export default App;
+
+Acomponent.js
+---------------
+import Bcomponent from "./Bcomponent";
+
+function Acomponent()
+{
+    return (
+        <Bcomponent/>
+    )
+}
+export default  Acomponent;
+
+
+Bcomponent.js
+----------------
+import Ccomponent from "./Ccomponent";
+
+function Bcomponent()
+{
+    return (
+       <Ccomponent/>
+    )
+}
+export default  Bcomponent;
+
+
+Ccomponent.js
+--------------
+import {UseContext} from "./App";
+
+function Ccomponent()
+{
+    return (
+    <div>
+     <UseContext.Consumer>
+         {
+             user => {
+                 return <div>The value is : {user} </div>
+             }
+         }
+     </UseContext.Consumer>
+    </div>
+    )
+}
+export default  Ccomponent;
+
+
+
+index.js
+-----------
+import Student from './Student';
+import ReactDOM from 'react-dom/client';
+import React from 'react';
+import App from './App';
+
+const root=ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+      <React.StrictMode>
+             <App />
+      </React.StrictMode>
+)
+
+
+
+Custom Hooks
+==============
+Hooks which are created by the user based on the application requirement are called custom hooks.
+ex:
+	myCustomHook()
+	customHook()
+	ihubHook()
+	myCustomCounter()
+
+Project Structure
+-------------------
+myapp11
+|
+|----node_modules
+|
+|----public
+|	|
+	|----favicon.ico
+	|----index.html
+	|----manifest.json
+|
+|-----src
+|	|
+	|----index.js
+	|----App.js
+	|----CustomHook.js
+|
+|-----package.json 
+|-----README.md
+
+step1:
+-----
+	Create a react project or application.
+	ex:
+		Reactprojects> npx create-react-app myapp11
+
+step2:
+------
+	Open VSC editor.
+	ex:
+		Reactprojects> code . 
+
+
+step3:
+-----
+	Move or Jump to myapp11 project.
+	ex:
+		Reactprojects> cd  myapp11
+
+
+step4:
+-----
+	Run the react application.
+	ex:
+		Reactprojects/myapp11> npm start 
+
+
+step5:
+-----
+	Test the react application.
+	ex:
+		http://localhost:3000
+
+
+step6:
+-----
+	Create "CustomHook.js" file inside "src" folder.
+
+
+
+ex:1
+----------
+
+CustomHook.js
+---------------
+import React from 'react'
+import {useState} from 'react'
+
+
+function CustomHook() 
+{
+  
+  const [count,setCount]=useState(0);
+
+  const handleClick=()=>
+  {
+    setCount(count+1);
+  }
+  
+    return(
+        {
+        count,
+        handleClick
+        })
+}
+
+export default CustomHook
+
+
+App.js
+--------
+import React from 'react'
+import customHook from './CustomHook';
+
+function App() {
+
+  const data=customHook();
+
+  return (
+    <div>
+      <h1>Count : {data.count}</h1>
+      <button onClick={data.handleClick}>Increment</button>
+    </div>
+  )
+}
+
+export default App
+
+
+index.js
+-----------
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+
+
+
+
+
+Images/Assets in ReactJS
+========================
+We can set images/Asset in ReactJS using two ways.
+
+1)Inside public Folder.
+
+2)Inside src folder.
+
+
+1)Inside public folder
+-----------------------
+If we put a file into a public folder,It will not be processed by 
+webpack. Instead it will be copied into the build folder untouched.
+
+
+To reference assets in the public folder, we need to use a special
+variable called PUBLIC_URL. Only files inside the public folder will be 
+accessible by %PUBLIC_URL% prefix.
+
+
+How to use image 
+-----------------
+1)
+myapp13
+|
+|---public
+	|
+	|---rock.jpg
+
+index.html
+----------
+<img src="%PUBLIC_URL%rock.jpg" alt="mypic"/>
+
+2)
+myapp
+|
+|---public
+	|
+	|---images
+		|
+		|--rock.jpg
+index.html
+----------
+<img src="%PUBLIC_URL%/images/rock.jpg" alt="mypic"/>
+
+
+If we want to use Image in Javascript file.
+
+App.js
+-------
+<img src={process.env.PUBLIC_URL +"/rock.jpg" } />
+<img src={process.env.PUBLIC_URL +"/images/rock.jpg" } />
+
+ex:1
+-----
+index.html
+--------
+-
+-
+-
+ <div id="root"></div>
+<img src="%PUBLIC_URL%/team1.jpeg" alt="mypic"/>
+-
+-
+-
+Note:
+-----
+	Mostly of the time we are displaying images in Component only.
+ex:
+
+App.js
+------
+import React, { Component } from 'react'
+
+export default class App extends Component {
+        render() {
+                return (
+                        <div>
+<img src={process.env.PUBLIC_URL+"team1.jpeg"} alt="mypic"></img>    
+                        </div>
+                )
+        }
+}
+
+index.js
+----------
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from "./App";
+
+//render the component to index.html
+ReactDOM.render(<App />,document.getElementById("root"));
+
+2)Inside src folder
+--------------------
+we can import a file right in a Javascript module.This tell webpack to 
+include that file in the bundle.
+
+How to use 
+---------
+
+1)
+myapp
+|
+|---src
+	|
+	|---rock.jpg
+App.js
+-----
+import pic from "./rock.jpg";
+<img src={pic} alt="mypic" />
+
+This ensures that when the project is built.Webpack wil correctly move
+the images into the build folder and provide us with correct paths.
+
+ex:
+App.js
+------
+import React, { Component } from 'react'
+import pic from "./team1.jpeg";
+
+export default class App extends Component {
+        render() {
+                return (
+                        <div>
+                                <img src={pic} alt="mypic"></img>    
+                        </div>
+                )
+        }
+}
+
+index.js
+---------
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from "./App";
+
+//render the component to index.html
+ReactDOM.render(<App />,document.getElementById("root"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

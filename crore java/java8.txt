@@ -1,0 +1,469 @@
+Internal Architecture of JVM
+==============================
+Diagram: java8.1
+
+Our java program contains java code instructions.Once if we compile the program our java code instructions convert to byte code instructions in .class file.
+
+JVM will invoke one module called Classloader/Sub System.To load all the byte code instructions from .class file.The work of classloader is to check these byte code instructions are proper or not.If they are not proper then it will refuse the execution.If they are proper then it will allocate the memory.
+
+We have five types of memories in java.
+
+1) Method Area 
+---------------
+It contains code of a class , code of a variable and code of a method.
+
+2) Heap 
+-----------
+Our object creations will store in heap area.
+
+Note:
+-----
+Whenever jvm loads byte code instructions from .class file it will create method area and heap area automatically.
+
+3) Java Stack 
+--------------
+Java methods will execute in method area.But to execute those methods we required some memory, that memory will be allocated in java stack.
+
+4) PC register 
+--------------
+It is a program counter register which is used to track the address of an instructions.
+
+5) Native Method Stack 
+-----------------------
+Java methods will execute in method area.
+Similary native methods will execute in native method stack.
+To execute native methods we required a program called Native method interface.
+
+Execution Engine
+---------------
+Execution engine contains interpreter and JIT compiler.
+
+Whenever JVM loads byte code instructions from .class file it simultenously uses interpreter and JIT compiler.
+
+Interpreter is used to execute our program line by line procedure.
+
+JIT compiler is used to increase the execution speed of our program.
+
+Interview Questions
+=================
+
+Q)A .class file contains which code ?
+
+  byte code instructions 
+
+Q)How many memories are there in java?
+
+  We have five memories are there in java
+  1) Method area
+  2) Heap 
+  3) Java Stack 
+  4) PC register 
+  5) Native method stack 
+
+
+Q) What is JIT compiler ?
+
+   JIT compiler is a part of a JVM which is used to increase the 
+   execution speed of our program.
+
+
+Q) What is native method in java?
+
+   Method which is developed by using some other language is called 
+   native mthod.
+
+Q)How many classloaders are there in java?
+
+There are three predefined classloaders in java.	
+
+1)Boostrap classloader
+----------------------
+It is a parent for extension classloader.
+It loads rt.jar file.
+
+2)Extension classloader 
+-----------------------
+It is a parent for application classloader and it is a child for bootstrap classloader.
+It loads all the jar files from "ext" folder.
+
+
+3)Application/System classloader 
+---------------------------------
+It is a child for extension classloader.
+It loads our .class file from classpath.
+
+Datatypes
+===========
+Datatype describes what type of value we want to store inside a variable.
+
+Datatype also tells how much memory has to be created for a variable.
+
+In java, Datatypes are divided into two types.
+
+Diagram: java8.2
+
+byte
+-----
+It is a smallest datatype in java.
+
+Size: 1 byte (8 bits)
+
+Range: -128 to 127  (-2^7 to 2^7-1)
+
+ex:
+	1) byte b=10;
+           System.out.println(b); // 10
+
+	2) byte b=130;
+           System.out.println(b); // C.T.E 
+
+	3) byte b=10.5;
+           System.out.println(b); // C.T.E 
+
+short
+------
+It is a rarely used datatype in java.
+
+Size: 2 bytes (16 bits)
+
+Range : -32768 to 32767 (-2^15 to 2^15-1)
+
+ex:
+	1) byte b=10;
+           short s=b;
+           System.out.println(s); // 10
+
+	2) short s=10.5;
+           System.out.println(s); // C.T.E 
+
+	3) short s="hi";
+           System.out.println(s); // C.T.E     
+
+int
+-----
+It is mostly used datatype in java.
+
+Size: 4 bytes (32 bits)
+
+Range: -2147483648 to 2147483647 (-2^31 to 2^31-1)
+
+ex:
+	1) int i=true;
+           System.out.println(i); // C.T.E 
+
+	2) int i="hi";
+           System.out.println(i); // C.T.E 
+
+	3) int i=10.5;
+           System.out.println(i); // C.T.E 
+
+	4) int i='a';
+           System.out.println(i); // 97
+
+Note:
+-----
+In java, for every character we have universal unicode value.
+ex:
+	a -- 97
+	A -- 65 
+
+long 
+-------
+If int datatype is not enough to hold large value then we need to use long datatype.
+
+Size: 8 bytes (64 bits)
+
+Range: (-2^63 to 2^63-1)
+					
+ex:
+	1) long l='A';
+           System.out.println(l); // 65 
+
+	2) long l="true";
+           System.out.println(l); // C.T.E 
+
+	3) long l=10.5;
+       	   System.out.println(l); // C.T.E 
+	
+	4) long l=true;
+           System.out.println(l); // C.T.E 
+
+Q)What is the difference between float and double datatype?
+
+float					double
+------------				---------
+If we depend upon 4 to 6 decimal point	If we depend upon 14 to 16 decimal 
+of accuracy then we need to use float.	point of accuracy then we need to use
+					double.
+
+Size : 4 bytes (32 bits)		Size : 8 bytes (64 bits)
+
+Range: -3.4e38 to 3.4e38		Range : -1.7e308 to 1.7e308
+
+To represent float value we need to 	To represent double value we need to
+suffix with 'f'.			suffi with 'd'.
+ex:					ex:
+	10.5f;					10.5d;
+
+ex:
+	1) float f=10;
+           System.out.println(f); //10.0 
+
+	2) float f='a';
+           System.out.println(f); // 97.0 
+
+	3) float f="A";
+           System.out.println(f); // C.T.E 
+
+	4) float f=true;
+           System.out.println(f); //C.T.E 
+
+
+ex:
+	1) double d=10;
+           System.out.println(d); //10.0 
+
+	2) double d='a';
+           System.out.println(d); // 97.0 
+
+	3) double d="A";
+           System.out.println(d); // C.T.E 
+
+	4) double d=true;
+           System.out.println(d); //C.T.E 
+
+ 
+boolean
+--------
+It is used to represent boolean values either true or false.
+
+Size : (Not Applicable)
+
+Range : (Not Applicable)
+
+ex:
+	1) boolean b="true";
+           System.out.println(b); // C.T.E 
+
+	2) boolean b=TRUE;
+	   System.out.println(b); // C.T.E 
+
+	3) boolean b=true;
+           System.out.println(b); // true 
+
+char
+------
+It is a single character which is enclosed in a single quotation.
+
+Size : 2 bytes (16 bits)
+
+Range : 0 to 65535
+
+ex:
+	1) char ch='a';
+           System.out.println(ch); //a 
+
+	2) char ch=65;
+           System.out.println(ch); // A 
+
+	3) char ch='ab';
+           System.out.println(ch); // C.T.E 
+
+Diagram: java8.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

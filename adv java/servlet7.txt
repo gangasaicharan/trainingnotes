@@ -1,0 +1,573 @@
+Servlet to Servlet Communication
+================================
+Servlet to Servlet communication is also known as Servlet Chaining.
+
+Servlet to Servlet communication is possible by using three ways.
+
+1)Forwarding the request 
+
+2)Including the response 
+
+3)Send Redirection
+
+1)Forwarding the request 
+------------------------
+In forwarding the request , output of source servlet program will be discarded and output of destination program will goes to browser window as dynamic response.
+
+To foward the request we need to use RequestDispatcher object.
+
+We can create RequestDispatcher object as follow.
+ex:
+	RequestDispatcher rd=req.getRequestDispatcher();
+	rd.forward(req,res);
+
+
+
+2)Including the response 
+-------------------------
+In including the response, output of source servlet program and output of destination servlet program combinely goes to browser window as dynamic response.
+
+To perform including the response we need to use RequestDisptacher object.
+
+We can create RequestDispatcher object as follow.
+ex:
+	RequestDispatcher rd=req.getRequestDispatcher();
+	rd.include(req,res);
+
+Deployment Directory structure
+------------------------------
+STSApp1
+|
+|---Java Resources
+|	|
+	|------src
+		|
+		|--com.ihub.www
+			|
+			|---TestSrv1.java
+			|---TestSrv2.java
+|
+|---Web Content
+	|
+	|------form.html 
+	|
+	|------WEB-INF
+		|
+		|---web.xml 
+Note:
+-----
+In above application we need to add "servlet-api.jar" file in project build path.
+
+
+form.html
+---------
+<center>
+	<form action="test1" method="GET">
+		UserName: <input type="text" name="t1"/> <br>
+		Password: <input type="password" name="t2"/> <br>
+		<input type="submit" value="login"/>	
+	</form>
+</center>
+
+web.xml
+---------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  <servlet>
+  	<servlet-name>TestSrv1</servlet-name>
+  	<servlet-class>com.ihub.www.TestSrv1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>TestSrv1</servlet-name>
+  	<url-pattern>/test1</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>TestSrv2</servlet-name>
+  	<servlet-class>com.ihub.www.TestSrv2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>TestSrv2</servlet-name>
+  	<url-pattern>/test2</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+  	<welcome-file>form.html</welcome-file>
+  </welcome-file-list>
+  
+</web-app>
+
+TestSrv1.java
+------------
+package com.ihub.www;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class TestSrv1 extends HttpServlet
+{
+	protected void doGet(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException
+	{
+		PrintWriter pw=res.getWriter();
+		res.setContentType("text/html");
+		
+		
+		//reading form data
+		String name=req.getParameter("t1");
+		String pwd=req.getParameter("t2");
+		
+		if(pwd.equals("admin"))
+		{
+			RequestDispatcher rd=req.getRequestDispatcher("test2");
+			rd.forward(req, res);
+		}
+		else
+		{
+			pw.println("<center><b style='color:red'>Sorry! Incorrect username or password</b></center>");
+			RequestDispatcher rd=req.getRequestDispatcher("form.html");
+			rd.include(req, res);
+		}
+		
+		pw.close();
+	}
+}
+
+TestSrv2.java
+-------------
+package com.ihub.www;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class TestSrv2 extends HttpServlet
+{
+	protected void doGet(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException
+	{
+		PrintWriter pw=res.getWriter();
+		res.setContentType("text/html");
+		
+		pw.println("<center><h1>Login Successfully</h1></center>");
+		
+		pw.close();
+	}
+}
+
+Request url
+----------
+	http://localhost:2525/STSApp1/
+
+
+3)Send Redirection
+===================
+A Send redirection is used to forward the request to the application which is present in same server and different server.
+
+To forward the request we will use sendRedirect() method of HttpServletResponse object.
+ex:
+	res.sendRedirect("url");
+
+It always sends a new request.
+
+It uses browser window to send the request.
+
+It works from inside and outside of the server.
+
+
+Deployment Directory structure
+------------------------------
+STSApp2
+|
+|---Java Resources
+|	|
+	|------src
+		|
+		|--com.ihub.www
+			|
+			|---TestSrv.java
+|
+|---Web Content
+	|
+	|------form.html 
+	|
+	|------WEB-INF
+		|
+		|---web.xml 
+Note:
+-----
+In above application we need to add "servlet-api.jar" file in project build path.
+
+form.html
+--------
+<center>
+
+	<a href="test?t1=flights"> Flights </a>  <br><br>
+	
+	<a href="test?t1=hotels"> Hotels </a>  <br><br>
+	
+	<a href="test?t1=railways"> Train </a>   <br><br>
+	
+</center>
+
+web.xml
+-------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  
+  <servlet>
+  	<servlet-name>TestSrv</servlet-name>
+  	<servlet-class>com.ihub.www.TestSrv</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>TestSrv</servlet-name>
+  	<url-pattern>/test</url-pattern>
+  </servlet-mapping> 
+  
+  <welcome-file-list>
+  	<welcome-file>form.html</welcome-file>
+  </welcome-file-list>
+  
+</web-app>
+
+TestSrv.java
+------------
+package com.ihub.www;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class TestSrv extends HttpServlet
+{
+	protected void doGet(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException
+	{
+		PrintWriter pw=res.getWriter();
+		res.setContentType("text/html");
+		
+		String val=req.getParameter("t1");
+		
+		res.sendRedirect("http://www.makemytrip.com/"+val);
+		
+		pw.close();
+	}
+}
+
+Request url
+----------
+	http://localhost:2525/STSApp2/
+
+Stateless Behaviour of Web application
+======================================
+Diagram: servelt7.1
+
+Above diagram demostrate on stateless baheviour of web application.
+
+No web resource program can access previous request data while processing the current request.It means we can't access form1 data while processing the form2 data.
+
+To overcome this limitation we need to use Session Tracking.
+
+Deployment Directory structure
+------------------------------
+StatelessApp 
+|
+|---Java Resources
+|	|
+	|------src
+		|
+		|--com.ihub.www
+			|
+			|---TestSrv1.java
+			|---TestSrv2.java
+|
+|---Web Content
+	|
+	|------form.html 
+	|
+	|------WEB-INF
+		|
+		|---web.xml 
+Note:
+-----
+In above application we need to add "servlet-api.jar" file in project build path.
+
+form.html
+----------
+<form action="test1" method="GET">
+	
+	Name: <input type="text" name="t1"/> <br>
+	
+	Father Name : <input type="text" name="t2"/> <br>
+	
+	Maritial status : 
+	
+	<input type="checkbox" name="t3" value="married"/> MARRIED
+	<input type="checkbox" name="t3" value="single"/> SINGLE 
+	<br>
+	
+	<input type="submit" value="submit"/>
+	
+</form>
+
+web.xml
+---------
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+ 
+ <servlet>
+ 	<servlet-name>TestSrv1</servlet-name>
+ 	<servlet-class>com.ihub.www.TestSrv1</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>TestSrv1</servlet-name>
+ 	<url-pattern>/test1</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet>
+ 	<servlet-name>TestSrv2</servlet-name>
+ 	<servlet-class>com.ihub.www.TestSrv2</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>TestSrv2</servlet-name>
+ 	<url-pattern>/test2</url-pattern>
+ </servlet-mapping>
+ 
+ <welcome-file-list>
+ 	<welcome-file>form.html</welcome-file>
+ </welcome-file-list>
+ 
+ 
+</web-app>
+
+TestSrv1.java
+-------------
+package com.ihub.www;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class TestSrv1 extends HttpServlet
+{
+	protected void doGet(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException
+	{
+		PrintWriter pw=res.getWriter();
+		res.setContentType("text/html");
+		
+		//reading form data
+		String name=req.getParameter("t1");
+		String fname=req.getParameter("t2");
+		String ms=req.getParameter("t3");
+		
+		if(ms.equals("married"))
+		{
+			pw.println("<form action='test2' method='GET'>");
+			pw.println("Spouse Name :<input type='text' name='f2t1'/><br>");
+			pw.println("No of Child :<input type='text' name='f2t2'/><br>");
+			pw.println("<input type='submit' value='submit'/>");
+			pw.println("</form>");
+		}
+		else
+		{
+			pw.println("<form action='test2' method='GET'>");
+			pw.println("When will u marry :<input type='text' name='f2t1'/><br>");
+			pw.println("Why will u marry :<input type='text' name='f2t2'/><br>");
+			pw.println("<input type='submit' value='submit'/>");
+			pw.println("</form>");
+		}
+		pw.close();
+	}
+}
+
+TestSrv2.java
+------------
+package com.ihub.www;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class TestSrv2 extends HttpServlet
+{
+	protected void doGet(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException
+	{
+		PrintWriter pw=res.getWriter();
+		res.setContentType("text/html");
+		
+		//reading form1 data
+		String name=req.getParameter("t1");
+		String fname=req.getParameter("t2");
+		String ms=req.getParameter("t3");
+		
+		
+		//reading form2 data 
+		String val1=req.getParameter("f2t1");
+		String val2=req.getParameter("f2t2");
+		
+		pw.println("Form 1 Data :"+name+" "+fname+" "+ms+"<br>");
+		pw.println("Form 2 Data :"+val1+" "+val2+"<br>");
+		
+		pw.close();
+	}
+}
+
+Request url
+----------
+	http://localhost:2525/StatelessApp/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

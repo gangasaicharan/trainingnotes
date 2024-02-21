@@ -1,0 +1,640 @@
+2)Userdefined constructor
+===========================
+If a constructor is a create by the user based on the application requirement is called userdefined constructor.
+
+It is divided into two types.
+
+1)Zero Argument constructor 
+
+2)Parameterized constructor 
+
+1)Zero Argument constructor 
+--------------------------
+Suppose if we are not passing any argument to userdefined constructor then that constructor is called zero-argument constructor.
+
+ex:
+class  Test
+{
+	Test()
+	{
+		System.out.println("0-arg const");
+	}
+	public static void main(String[] args) 
+	{
+		System.out.println("main-method");	
+	}
+}
+o/p:
+	main-method 
+
+ex:2
+-----
+class  Test
+{
+	Test()
+	{
+		System.out.println("0-arg const");
+	}
+	public static void main(String[] args) 
+	{
+		System.out.println("main-method");	
+		Test t=new Test();
+	}
+}
+o/p:
+	main-method 
+	0-arg const
+
+ex:3
+----
+class  Test
+{
+	public Test()
+	{
+		System.out.println("0-arg const");
+	}
+	public static void main(String[] args) 
+	{
+		Test t1=new Test();
+		System.out.println("main-method");	
+		Test t2=new Test();
+	}
+}
+
+o/p:
+	0-arg const
+	main-method 
+	0-arg const
+
+2)Parameterized constructor 
+------------------------------
+Suppose if we pass atleast one argument to userdefined constructor then that constructor is called parameterized constructor.
+
+ex:
+
+class Employee 
+{
+	//instance variables
+	//current class variables 
+	private int empId;
+	private String empName;
+	private double empSal;
+
+	public Employee(int empId,String empName,double empSal)
+	{
+		this.empId=empId;
+		this.empName=empName;
+		this.empSal=empSal;
+	}
+	public void getEmployeeDetails()
+	{
+		System.out.println("Employee Id :"+empId);
+		System.out.println("Employee Name :"+empName);
+		System.out.println("Employee Salary "+empSal);
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		Employee e=new Employee(101,"Alan",1000d);
+		e.getEmployeeDetails();
+	}
+}
+
+Constructor overloading
+========================
+Having same constructor name with different parameters in a single class is called constructor overloading.
+
+ex:
+
+class A 
+{
+	A()
+	{
+		System.out.println("0-arg constructor");
+	}
+	A(int i)
+	{
+		System.out.println("int-arg constructor");
+	}
+	A(double d)
+	{
+		System.out.println("double-arg constructor");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		A a1=new A();
+		A a2=new A(10);
+		A a3=new A(10.5d);
+	}
+}
+
+Q)What is singleton class?
+
+A class which allows us to create only one object is called singleton class.
+
+If we call any method by using class name and that method will return same class object is called singleton class.
+ex:
+	LocalDate date=LocalDate.now();
+	LocalTime time=LocalTime.now();
+
+
+To create a singleton class , a class must have private constructor and factory method.
+
+ex:
+
+class Singleton
+{
+	static Singleton singleton=null;
+
+	//constructor
+	private Singleton()
+	{
+
+	}
+	//factory method
+	public static Singleton getInstance()
+	{
+		if(singleton==null)
+		{
+			singleton=new Singleton();
+		}
+
+		return singleton;
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		Singleton s1=Singleton.getInstance();	
+
+		Singleton s2=Singleton.getInstance();
+
+		System.out.println(s1.hashCode());
+		System.out.println(s2.hashCode());
+	}
+}
+
+this keyword
+=============
+A this keyword is a java keyword which is used to refer current class object reference.
+
+We can utilize this keyword in following ways.
+
+i)To refer current class variables 
+
+ii)To refer current class methods 
+
+iii)To refer current class constructors 
+
+i)To refer current class variables 
+----------------------------------
+class A
+{
+	int i=10;
+	int j=20;
+	A(int i,int j)
+	{
+		System.out.println(this.i+" "+this.j);// 10  20
+		System.out.println(i+" "+j);// 100  200
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		A a=new A(100,200);
+	}
+}
+
+ii)To refer current class methods 
+-----------------------------
+class A
+{
+	public void m1()
+	{
+		System.out.println("M1-method");
+		this.m2();
+	}
+	public void m2()
+	{
+		System.out.println("M2-method");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		A a=new A();
+		a.m1();
+	}
+}
+iii)To refer current class constructors 
+-------------------------------------
+class A
+{
+	A()
+	{
+		System.out.println("0-arg const");
+	}
+	A(int i)
+	{
+		this();
+		System.out.println("int-arg const");
+	}
+	A(double d)
+	{
+		this(10);
+		System.out.println("double-arg const");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		A a=new A(10.5d);
+	}
+}
+
+super keyword
+=============
+A super keyword is a java keyword which is used to refer super class object reference.
+
+We can utilize super keyword in following ways.
+
+i)To refer super class variables 
+
+ii)To refer super class methods 
+
+iii)To refer super class constructors
+
+i)To refer super class variables 
+--------------------------------
+class A 
+{
+	int i=10;
+	int j=20;
+}
+class B extends A 
+{
+	int i=100;
+	int j=200;
+	B(int i,int j)
+	{
+		System.out.println(i+" "+j); // 1000  2000
+		System.out.println(this.i+" "+this.j); // 100 200 
+		System.out.println(super.i+" "+super.j); //10  20
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		B b=new B(1000,2000);
+	}
+}
+
+
+ii)To refer super class methods 
+--------------------------------
+class A 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class B extends A 
+{
+	public void m2()
+	{
+		super.m1();
+		System.out.println("M2-Method");
+	}	
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		B b=new B();
+		b.m2();
+	}
+}
+
+iii)To refer super class constructor
+------------------------------------
+class A 
+{
+	A()
+	{
+		super();
+		System.out.println("A const");
+	}
+}
+class B extends A 
+{
+	B()
+	{
+		super();
+		System.out.println("B const");
+	}	
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		B b=new B();
+	}
+}
+
+Inner classes
+==============
+Sometimes we will declare a class inside another class such concept is called inner class.
+ex:
+	class Outer_class
+	{
+		class Inner_class
+		{	
+			-
+			-
+		}
+	}
+Inner class introduced as a part of event handling to remove GUI bugs.
+
+Due to powerful features and benefits of inner classes , programmers started to use inner class in our regular programming.
+
+Inner class does not support static declaration.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

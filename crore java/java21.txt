@@ -1,0 +1,469 @@
+Q)Write a java program to concatinate two arrays and display then in sorting   order?
+
+input:
+	arr1 = 6 9 10 8 7
+	arr2 = 5 1 3 4 2
+
+output:
+	1 2 3 4 5 6 7 8 9 10
+
+ex:
+	
+import java.util.Arrays;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int[] arr1 ={6,9,10,8,7};
+
+		int[] arr2 ={5,1,3,4,2};
+
+		int size1=arr1.length; //5
+		int size2=arr2.length; //5 
+
+		arr1=Arrays.copyOf(arr1,size1+size2);
+
+		int j=0;
+		for(int i=size1;i<arr1.length;i++)
+		{
+			arr1[i]=arr2[j++];
+		}
+		//sorting 
+		Arrays.sort(arr1);
+
+		//display
+		for(int i:arr1)
+		{
+			System.out.print(i+" ");
+		}
+		
+	}
+}
+
+Q)Write a java program to delete first occurance of a given element?
+
+input:
+	arr = 2 5 6 3 1 3 9 7 3 
+
+	element = 3 
+
+output:
+	2 5 6 1 3 9 7 3 
+
+ex:
+			
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={2,5,6,3,1,3,9,7,3};
+
+		int[] resArr=new int[arr.length-1];
+		
+		int element=3;
+
+		int j=0,cnt=0;
+		for(int i=0;i<arr.length;i++)
+		{
+			if(arr[i]==element && cnt==0)
+			{
+				cnt++;
+				continue;
+			}
+			resArr[j++]=arr[i];
+		}
+		//display
+		for(int i:resArr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+
+Q)Write a java program to insert given element in a given position of an array?
+input:
+	arr = 5 7 8 3 9 1 2
+
+ 	element = 100
+
+	position = 4
+
+output:
+	5 7 8 3 100 9 1 2
+
+ex:
+---
+
+import java.util.Arrays;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int[] arr ={5,7,8,3,9,1,2};
+ 		int element = 100;
+		int position = 4;
+
+		arr=Arrays.copyOf(arr,arr.length+1);
+
+		for(int i=arr.length-1;i>=position;i--)
+		{
+			arr[i]=arr[i-1];
+		}
+
+		arr[position]=element;
+
+		//display
+		for(int i:arr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+Two-Dimensional Array
+=======================
+Two dimensional array is a combination of rows and columns.
+
+Two dimensional array is implemented based on array of arrays approach but not in matrix form.
+
+The main objective of two dimensional array is memory utilization.
+
+We can declare two dimensional array as follow.
+
+syntax:
+	datatype[][] variable_name=new datatype[rows][cols];
+ex:
+	int[][] arr=new int[3][3];
+		
+	Here we can store 9 elements in array.
+
+Domensional array is used to develop business oriented applications, gaming applications ,matrix type of applications and etc.
+
+Q)Write a java program to accept array elements and display them in matrix form?
+ex:
+
+import java.util.Scanner;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the rows :");
+		int rows=sc.nextInt();
+		
+		System.out.println("Enter the cols :");
+		int cols=sc.nextInt();
+
+		int[][] arr=new int[rows][cols];
+		
+		//inserting the elments
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.println("Enter the element :");
+				arr[i][j]=sc.nextInt();
+			}
+		}
+
+		//display elements 
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.print(arr[i][j]+" ");
+			}
+			//new line
+			System.out.println("");
+		}
+
+	}
+}
+
+Q)Write a java program to find out square of a matrix?
+
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int[][] arr={
+						{1,2,3},
+						{4,5,6},
+						{7,8,9}
+					};		
+
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				System.out.print(arr[i][j] * arr[i][j] +" ");
+			}
+			//new line
+			System.out.println("");
+		}
+
+	}
+}
+
+Q)Write a java program to display sum of diagonal elements?
+
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int[][] arr={
+						{1,2,3},
+						{4,5,6},
+						{7,8,9}
+					};		
+
+		int sum=0;
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				if(i==j)
+				{
+					sum=sum+arr[i][j];
+				}
+			}
+		}
+		System.out.println("sum of diagonal element is ="+sum);
+
+	}
+}
+
+Q)Write a java program to display sum of upper triangle elements?
+
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int[][] arr={
+						{1,2,3},
+						{4,5,6},
+						{7,8,9}
+					};		
+
+		int sum=0;
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				if(i<j)
+				{
+					sum=sum+arr[i][j];
+				}
+			}
+		}
+		System.out.println("sum of upper triangle element is ="+sum);
+
+	}
+}
+
+Q)Write a java program to display sum of lower triangle elements?
+
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int[][] arr={
+						{1,2,3},
+						{4,5,6},
+						{7,8,9}
+					};		
+
+		int sum=0;
+		for(int i=0;i<3;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				if(i>j)
+				{
+					sum=sum+arr[i][j];
+				}
+			}
+		}
+		System.out.println("sum of lower triangle element is ="+sum);
+
+	}
+}
+
+Assignment
+============
+Q)Write a java program to display array element in given format?
+
+Input:
+	
+	1 2 3 
+        4 5 6
+        7 8 9 
+
+output:
+	1 2 3 6 9 8 7 4 5 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

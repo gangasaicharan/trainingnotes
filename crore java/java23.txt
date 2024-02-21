@@ -1,0 +1,602 @@
+Q)What is tightly encapsulated class?
+
+A class is said to be tightly encapsulated class if all the variables of that class must be private.Here we don't need to check these variables having setter and getter method or not.
+
+ex:1
+-----
+	class A
+	{
+		private int i=10;
+	}
+
+ex:2
+----
+	class A
+	{
+		int i=10;
+	}
+	class B extends A 
+	{
+		private int j=20;
+	}
+Note: 
+-----
+If no parent is tightly encapsulated then no child is tightly encapsulated.
+
+Q)What is the difference between POJO class and Java Bean class?
+
+POJO
+-----
+A class is said to be pojo class if it supports following two properties.
+
+1) All variables must be private 
+
+2) All variables must have setter and getter methods.
+
+Java Bean
+-----------
+A class is said to be java bean class if it supports following four properties.
+
+1) A class should be public.
+
+2) A class should have atleast zero-argument constructor.
+
+3) All variables must be private.
+
+4) All variables must have setter and getter methods.
+
+Note:
+------
+Every java bean class is a pojo class. 
+But every pojo class is not a java bean class.
+
+
+Is-A relationship
+=================
+Is-A relationship is also known as inheritance.
+
+By using extends keyword we can implements Is-a relationship.
+
+The main objective of Is-a relationship is to provide reusability.
+
+ex:
+----
+class Parent 
+{
+	public void job()
+	{
+		System.out.println("Job Method");
+	}
+}
+class Child extends Parent 
+{
+	public void training()
+	{
+		System.out.println("Training Method");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		Parent p=new Parent();
+		p.job();
+
+		Child c=new Child();
+		c.job();
+		c.training();
+
+		Parent p1=new Child();
+		p1.job();
+
+		Child c1=new Parent(); //invalid 
+
+	}
+}
+
+Inheritance
+=============
+Inheritance is a mechanism where we will derive a class in the presence of existing class.
+
+or
+
+Inheritance is a mechanism where one class will inherit the properties of another class.
+
+We have following types of inheritance.
+
+1) Single Level inheritance
+
+2) Multi level inheritance
+
+3) Multiple inheritance 
+
+4) Hierarchical inheritance
+
+5) Hybrid inheritance 
+
+1) Single Level inheritance
+----------------------------
+If we derived a class in the presence of one base class is called single level inheritance.
+ex:				Diag:
+	class A				A (Parent/Super/Base class) 
+	{				|
+	}				|
+	class B extends A 		|
+	{				|
+	}				B (Child/Sub/ Drived class)
+
+
+ex:
+----
+class A 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class B extends A
+{
+	public void m2()
+	{
+		System.out.println("M2-Method");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		A a=new A();
+		a.m1();
+
+		B b=new B();
+		b.m1();
+		b.m2();
+		
+	}
+}
+
+2) Multi level inheritance
+----------------------------
+If we derived a class in the presence of one base class and that class is derived from another base class is called multilevel inheritance.
+
+ex:				Diag:
+	class A				A
+	{				|
+	}				|
+	class B extends A 		B
+	{				|
+	}				|
+	class C extend B 		C
+	{
+	}
+
+ex:
+---
+class A 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class B extends A
+{
+	public void m2()
+	{
+		System.out.println("M2-Method");
+	}
+}
+class C extends B
+{
+	public void m3()
+	{
+		System.out.println("M3-Method");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		A a=new A();
+		a.m1();
+
+		B b=new B();
+		b.m1();
+		b.m2();
+
+		C c=new C();
+		c.m1();
+		c.m2();
+		c.m3();
+		
+	}
+}
+
+
+
+3) Multiple inheritance
+--------------------------
+In java, we can't extends more then one class simultenously because java does not support multiple inheritance.
+ex:
+	class A
+	{
+	}
+	class B 
+	{
+	}
+	class C extends A,B  --> invalid 
+	{
+	}
+
+But interface can extends more then one interface so we can achieve multiple inheritance concept through interfaces.
+ex:
+	interface A
+	{
+	}
+	interface B
+	{	
+	}
+	interface C extends A,B
+	{
+	}
+
+If our class does not extends any other class then our class is a direct child class of Object class.
+ex:			Diag:
+	class A			Object
+	{			|
+				|
+	}			A 
+
+If our class extends some other class then our class is a indirect child class of Object class.
+ex:			Diag:
+	class A			Object
+	{			|
+	}			|
+	class B extends A 	A
+	{			|
+	}			|
+				B 
+
+Java does not support cyclic inheritance.
+ex:
+	class A extends B
+	{
+	}
+	class B extends A 
+	{
+	}
+
+Q)Why java does not support multiple inheritance?
+
+There may chance of raising ambiguity problem that's why java does not support multiple inheritance.
+
+ex:
+		P1.m1()		  	P2.m1()
+		|-----------------------------|
+				|
+				C.m1();
+
+4) Hierarchical inheritance
+------------------------
+If we derived multiple classes by using one base class is called hierarchical inheritance.
+ex:				Diag:
+	class A 					A
+	{				|---------------|---------------|
+	}				B				C
+	class B extends A 
+	{
+	}
+	class C extends A
+	{
+	}
+
+ex:
+
+class A 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class B extends A
+{
+	public void m2()
+	{
+		System.out.println("M2-Method");
+	}
+}
+class C extends A
+{
+	public void m3()
+	{
+		System.out.println("M3-Method");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		A a=new A();
+		a.m1();
+
+		B b=new B();
+		b.m1();
+		b.m2();
+
+		C c=new C();
+		c.m1();
+		c.m3();
+		
+	}
+}
+
+5)Hybrid inheritance
+---------------------
+Hybrid inheritance is a combination of more then one inheritance.
+
+Java does not support hybrid inheritance.
+
+Diag:			A
+			|
+	|-------------------------------|
+	B				C
+	|-------------------------------|
+			|
+			D 
+	
+Has-A relationship
+==================
+Has-A relationship is also known as composition and aggregation.
+
+There is no specific keyword to implements Has-a relationship but mostly we will use new operator.
+
+The main objective of Has-A relationship is to provide reusability.
+
+Has-A relationship will increase the dependency between two components.
+
+ex:
+	class Engine
+	{	
+		-
+		- // Engine specific functionality 
+		-
+	}
+	class Car
+	{
+		Engine e=new Engine();
+	}
+
+ex:
+----
+class Ihub
+{
+	public String courseName()
+	{
+		return "JAVA-FSD";
+	}
+	public double courseFee()
+	{
+		return 25000d;
+	}
+	public String trainerName()
+	{
+		return "Niyaz Sir";
+	}
+}
+class Usha
+{
+	public void getCourseDetails()
+	{
+		Ihub i=new Ihub();
+		System.out.println("Course Name :"+i.courseName());
+		System.out.println("Course Fee :"+i.courseFee());
+		System.out.println("Trainer Name :"+i.trainerName());
+	}
+}
+class Student
+{
+	public static void main(String[] args)
+	{
+		Usha u=new Usha();
+		u.getCourseDetails();
+	}
+}
+
+composition
+============
+Without existing container object there is no chance of having contained object then the relationship between container and contained object is called composition which is strongly association.
+
+Diagram: java23.1
+
+Aggregation
+=============
+Without existing container object there is a chance of having contained object then the relationship between container and contained object is called aggregation  which is loosely association.
+
+Diagram: java23.2
+
+Interview program
+==================
+Q)Write a java program to display array elements in spiral form?
+
+input:
+	1 2 3 
+        4 5 6 
+        7 8 9
+
+output:
+	1 2 3 6 9 8 7 4 5 
+
+ex:
+public class Test 
+{
+    public static void main(String[] args) 
+    {
+        int[][] matrix = {
+            			{1, 2, 3},
+            			{4, 5, 6},
+            			{7, 8, 9}
+        		};
+
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+
+        int top = 0;
+        int bottom = rows - 1;
+        int left = 0;
+        int right = cols - 1;
+
+        while (true) 
+	   {
+            if (left > right) 
+			{
+                break;
+            }
+
+            // Print top row
+            for (int i = left; i <= right; i++) {
+                System.out.print(matrix[top][i] + " ");
+            }
+            top++;
+
+            if (top > bottom) {
+                break;
+            }
+
+            // Print right column
+            for (int i = top; i <= bottom; i++) {
+                System.out.print(matrix[i][right] + " ");
+            }
+            right--;
+
+            if (left > right) {
+                break;
+            }
+
+            // Print bottom row
+            for (int i = right; i >= left; i--) 
+	    {
+                System.out.print(matrix[bottom][i] + " ");
+            }
+            bottom--;
+    
+            if (top > bottom) {
+                break;
+            }
+
+            // Print left column
+            for (int i = bottom; i >= top; i--) 
+	    {
+                System.out.print(matrix[i][left] + " ");
+            }
+            left++; 
+	}//while loop  
+    }
+}	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

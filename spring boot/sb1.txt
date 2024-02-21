@@ -1,0 +1,219 @@
+Limitations with Spring Framework
+=================================
+In spring framework a user is responsible for following things.
+
+> Adding the dependencies/jar files 
+
+> Performing configuration (applicationContext.xml) 
+
+> Arranging the physical server i.e Tomcat.
+
+> Arranging the physical database i.e oracle.
+
+To overcome this limitations we need to use spring boot framework.
+
+Spring Boot
+============
+It is an open source java based application framework developed by Pivotal Team.
+
+It provides RAD(Rapid Application Development) features for spring based applications.
+
+It is an open source, production ready grade spring based applications with minimum configurations.
+
+In short , spring boot is a combination of 
+ex:
+	spring framework + embedded database + embedded server.
+
+Diagram:
+		Developer
+		   |
+		   |
+		Spring Boot 
+		   |
+ 		   |
+		Spring Framework 
+	
+Advantages of Spring Boot
+=========================
+It is used to create standalone applications which can be run by using 
+java -jar.
+
+It provides production ready grade featurs like metrics, health check, externalized configuration and etc.
+
+It provides optionate starters to simply the Maven configuration.
+
+It supports number of plugin's.
+
+It does not support xml configurations instead we will use annotations.
+
+It reduce the development time and gives more productivity.
+
+It provides CLI tool for creating and testing spring boot applications.
+
+
+List of companies working with spring boot
+===========================================
+We have following list of companies working with spring boot.They are.
+
+1) Netflix.
+2) Alibaba. 
+3) LinkedIn. 
+4) Uber. 
+5) Groupon. 
+6) Zillow. 
+7) Intuit.
+and etc.
+
+Interview Questions
+=====================
+
+Q)Spring boot given by ____ ?
+
+  Pivotal Team 
+
+
+Q)List out spring boot components?
+  
+  Spring boot contains four important components.
+
+  1) AutoConfiguration 
+
+  2) Starter 
+
+  3) CLI tool
+
+  4) Actuators 
+
+
+Q) List out embedded servers present in spring boot?
+
+   We have following list of embedded servers in spring boot.
+   1) Tomcat 
+   2) Jetty 
+   3) Undertow  
+
+Q) List out embedded databases present in spring boot?
+
+   We have following list of embedded databases in spring boot.
+   1) H2
+   2) HSQL
+   3) Derby	
+
+ 	
+Q)Where we will do configurations in spring boot?
+
+  We will do configurations in two files.
+
+  1) application.properties 
+  2) application.yml 
+
+Q)List out some stereo type annotations?
+
+  We have following list of stereo type annotations.
+ 
+  1) @Controller
+  2) @Service
+  3) @Repository 	
+  4) @Component
+  and etc. 
+  
+
+Q)Which component is used to add the dependencies in spring boot?
+
+  spring boot starter 
+
+
+Q)Which annotation is used to create a controller ?
+
+ @Controller 
+
+
+
+Q)Which annotation is used to create a service ?
+
+  @Service 
+
+
+Q)Which annotation is used to create a repository ?
+
+  @Repository 
+
+
+Q)In how many ways we can create spring boot application?
+
+There are two ways to create a spring boot application.
+
+1) Using Spring Initializr i.e https://start.spring.io/
+
+2) Using IDE's i.e STS(Spring Tool Suit) or Intellij.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

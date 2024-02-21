@@ -1,0 +1,496 @@
+Pattern Matching Operators
+==========================
+Pattern matching operators are used to select the letters from database table.
+
+Pattern matching operators will take the support of like keyword.
+
+We have two types of pattern matching operators.
+
+1) Percentage(%)
+
+2) Underscore(_)
+
+1) Percentage(%)
+-----------------
+Q)Write a query to display employees information whose name starts with 'A' letter?
+ 
+	select * from emp where ename like 'A%';
+
+Q)Writea query to display employees information whose name ends with 'n' letter?
+	
+	select * from emp where ename like '%n';
+
+Q)Write a query to display employees information whose name having middle letter as 'l'?
+
+	select * from emp where ename like '%l%';
+
+2) Underscore(_)
+-----------------
+Q)Write a query to display employees information whose employee name having second letter 
+  as 'l'?
+
+	select * from emp where ename like '_l%';	
+
+Q)Write a query to display employees information whose employee name having second 
+  last letters as 'd'?  
+
+	select  * from emp where ename like '%d_';
+
+Q)Write a query to display employees information whose employee name having third 
+  letter as 's' ?
+
+   	select * from emp  where ename like '__s%';
+
+Duplicate table or Copy of table
+================================
+Using create and select command we can create duplicate or copy of a table.
+
+If something goes wrong then we can recover the situation by using duplicate table.
+
+syntax:
+	create table <table_name> as select stmt;
+
+ex:
+	create table employee as select * from emp;
+
+	create table employee as select * from emp where deptno=10;
+
+	create table employee as select eid,ename,esal from emp;
+
+	create table employee as select * from emp where job<>'Manager';
+
+	create table employee as select * from emp where eid IN(201,202,203);
+
+	create table employee as select * from emp where esal between 10000 AND 30000;
+
+	create table employee as select * frome emp where ename like 'A%';
+
+cl scr
+=======
+IT is used to clear the output screen of SQL command prompt.
+ex:
+	cl scr
+
+DDL commands
+=============
+1) create  (tables)
+2) alter (columns)
+3) drop  (tables)
+4) truncate (rows/records)
+5) rename (tables) 
+
+2) alter command
+-----------------
+Using alter command we can perform following activities very easily.
+
+i)Adding the new column
+
+ii)Modifying the existing column 
+
+iii)Renaming a column
+
+iv)Dropping a exisitng column 
+
+i)Adding the new column
+----------------------
+Using alter command we can add new column in a existing table.
+
+syntax:
+	alter table table_name ADD (col datatype(size));
+ex:
+	alter table student ADD (state varchar2(10));
+	alter table student ADD (pincode number(8));
+
+	update student set state='Telangana' where sno=101;
+
+
+ii)Modifying the existing column 
+---------------------------------
+Using alter command we can modify the existing column.
+
+We can increase or decrease the size of a column only when existing values are fit into 
+new size.
+
+syntax:
+	alter table <table_name> MODIFY (col datatype(size));
+ex:
+	desc student;
+	alter table student MODIFY (state varchar2(15));
+	desc student;
+
+We can change the datatype of a column only if that column is empty.
+ex:
+	alter table student MODIFY (pincode varchar2(8));
+
+iii)Renaming a column
+------------------------
+Using alter command we can rename a column name.
+
+syntax:
+	alter table <table_name> rename column <old_name> to <new_name>;
+ex:
+	alter table student rename column sadd to city;
+
+	alter table emp rename column esal to dailywages;
+
+	alter table emp rename column job to designation;
+
+iv) Dropping a existing columns 
+---------------------------------
+Using alter command we can drop existing columns.
+
+syntax:
+	alter table <table_name> drop (col1,col2,...,colN);
+
+ex:
+	alter table student drop (state,pincode);
+
+3) drop command
+---------------
+A drop command is used to drop the tables from database.
+
+syntax:
+	drop table <table_name>;
+ex:
+	drop table emp;
+	drop table dept;
+	drop table student;
+
+4) truncate
+--------------
+It is used to delete the records permanently from database table.
+
+syntax:
+	truncate table <table_name>;
+ex:
+	truncate table emp;
+	truncate table dept;
+	truncate table student;
+
+Q)What is the difference between delete and truncate command?
+
+delete						truncate
+--------					----------
+It is used to delete the records temperory.	It is used to delete the records permanently.
+
+We can rollback the data.			We can't rollback the data.
+
+Where clause can be used.			Where clause can't be use.
+
+5) rename 
+----------
+It is used to rename the table name.
+syntax:
+	rename <old_name> to <new_name>;
+ex:
+	rename student to students;
+	rename emp to employees;
+	rename dept to departments;
+
+
+
+Functions
+==========
+Functions are used to manipulate the data items and gives the result.
+
+We have two types of functions.
+
+1)Group Functions / Multiple row functions
+
+2)Scalar Functions / Single row functions 
+
+1)Group Functions
+-----------------
+Group functions are applicable for multiple rows.
+
+We have following list of group functions.
+ex:
+	sum(), avg(), max() , min() , count(*) and count(exp).
+
+Q) Write a query to display sum of salary of each employee?
+
+   select sum(esal) from emp;
+
+Q) Write a query to display average salary of each employee?
+
+   select avg(esal) from emp;
+
+Q) Write a query to display highest salary from employee table?
+	
+   select max(esal) from emp;
+
+Q) Write a query to display lowest salary from employee table?
+
+   select min(esal) from emp;
+
+Q)What is the difference between count(*) and count(exp) ?
+
+count(*)
+-------
+It will return number of records present in database table.
+
+It will include null records also.
+
+ex:
+	select count(*) from student;
+	select count(*) from emp;
+	select count(*) from dept;
+
+count(exp)
+-----------
+It will return number of values present in datable table column.
+
+It won't include null values.
+
+ex:
+	select count(esal) from emp;//6
+
+	select count(comm) from emp;//5
+
+
+Userlist table
+==============
+create table userlist(uname varchar2(10),pwd varchar2(10));
+
+insert into userlist values('raja','rani');
+
+insert into userlist values('king','kingdom');
+
+commit;
+
+Q)Write a query to check username and password is valid or invalid?
+
+	select count(*) from userlist where uname='raja' and pwd='rani'; // 1 
+
+	select count(*) from userlist where uname='raja' and pwd='rani2'; // 0 
+
+
+Dual table
+===========
+A dual table is a dummy table which consist one row and one column.
+
+Dual table is used to perform arithmetic operations and to see the current system date.
+
+ex:
+	select 10+20 from dual;
+
+	select 10*20-100 from dual;
+
+	select sysdate from dual;
+
+	select current_date from dual;
+
+
+2)Scalar Functions
+-------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

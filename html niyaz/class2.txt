@@ -1,0 +1,481 @@
+HTML Meta Tags
+==============
+A meta tag is used to declare metadata of a document.
+
+Here metadata means data of a data.
+
+Metadata used by web browser, search engine and other web services.
+
+To declare metadata we need to use <meta> tag.
+
+A <meta> tag we can declare inside <head> tag.
+
+A <meta> tag is used to declare following things.
+
+1) Description
+
+2) Author 
+
+3) keywords
+
+4) view port 
+
+5) refresh 
+
+6) copyright 
+
+and etc.
+
+UTF-8
+------
+UTF stands for Unicode Transformation Format.
+
+UTF is a encloding methods which describes what character set a website is written with.
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--   title -->
+		<title>MyPage!</title>
+
+		<!-- favicon -->
+		<link rel="icon" href="ihub.jpg">
+		
+		<!-- meta data -->
+		<meta charset="utf-8">
+		<meta name="description" content="Web page for learning purpose">
+		<meta name="author" content="Niyaz sir">
+		<meta name="keywords" content="HTML CSS JAVASCRIPT BOOSTRAP">
+		<meta name="viewport" content="width=device-width, intial-scale=1.0">
+		<meta http-equiv="refresh" content="05">
+		<meta name="copyright" content="Copy right by Niyaz sir">
+		
+
+	</head>
+	<body>
+		This is HTML class 
+	</body>
+</html>
+
+Basic Tags in HTML
+==================
+
+Heading Tags
+============
+It will display the text in bold and size of the text is depends upon number of heading tags.
+
+We have 6 heading tags from h1 to h6.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--   title -->
+		<title>MyPage!</title>
+
+		<!-- favicon -->
+		<link rel="icon" href="ihub.jpg">
+
+	</head>
+	<body>
+		<h1> Heading Tag 1</h1> 
+		<h2> Heading Tag 2</h2> 
+		<h3> Heading Tag 3</h3> 
+		<h4> Heading Tag 4</h4> 
+		<h5> Heading Tag 5</h5> 
+		<h6> Heading Tag 6</h6> 
+	</body>
+</html>
+
+Pragraph tag
+------------
+A <p> tag is used to display the text in paragraph.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--   title -->
+		<title>MyPage!</title>
+
+		<!-- favicon -->
+		<link rel="icon" href="ihub.jpg">
+
+	</head>
+	<body>
+		<p>
+			HTML is widely used language on web to develop 
+			web pages and web applications and it is developed by 
+			burners lee in late 1991.
+		</p>
+	</body>
+</html>
+
+center tag
+===========
+A <center> tag is used to display the text in center.
+
+HTML5 does not support <center> tag.
+
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--   title -->
+		<title>MyPage!</title>
+
+		<!-- favicon -->
+		<link rel="icon" href="ihub.jpg">
+
+	</head>
+	<body>
+		<center>This is center tag</center>
+	</body>
+</html>
+
+bold tag
+----------
+A <b> tag is used to display the text in bold without importance.
+
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--   title -->
+		<title>MyPage!</title>
+
+		<!-- favicon -->
+		<link rel="icon" href="ihub.jpg">
+
+	</head>
+	<body>
+		<b>This is bold tag</b>
+	</body>
+</html>
+
+strong tag
+----------
+A <strong> tag is used to display the text in bold with important.
+
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--   title -->
+		<title>MyPage!</title>
+
+		<!-- favicon -->
+		<link rel="icon" href="ihub.jpg">
+
+	</head>
+	<body>
+		<strong>This is strong tag</strong>
+	</body>
+</html>
+
+italic tag
+----------
+A <i> tag is used to display the text in italic without force.
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--   title -->
+		<title>MyPage!</title>
+
+		<!-- favicon -->
+		<link rel="icon" href="ihub.jpg">
+
+	</head>
+	<body>
+		<i>This is italic tag</i>
+	</body>
+</html>
+
+emphasize tag
+-------------
+A <em> tag is used to display the text in italic with force.
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--   title -->
+		<title>MyPage!</title>
+
+		<!-- favicon -->
+		<link rel="icon" href="ihub.jpg">
+
+	</head>
+	<body>
+		<em>This is emphasize tag</em>
+	</body>
+</html>
+
+underline tag
+---------------
+A <u> tag is used to display the text in underline.
+
+HTML5 does not support <u> tag.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--   title -->
+		<title>MyPage!</title>
+
+		<!-- favicon -->
+		<link rel="icon" href="ihub.jpg">
+
+	</head>
+	<body>
+		<u>This is underline tag</u>
+	</body>
+</html>
+
+font tag
+--------
+A font tag is used to apply the color to the text , to increase the font size and change font family.
+
+HTML 5 does not support <font> tag.
+
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--   title -->
+		<title>MyPage!</title>
+
+		<!-- favicon -->
+		<link rel="icon" href="ihub.jpg">
+
+	</head>
+	<body>
+		<font color="blue" size="30" face="cursive">  
+			This is font tag 
+		</font>
+	</body>
+</html>
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--   title -->
+		<title>MyPage!</title>
+
+		<!-- favicon -->
+		<link rel="icon" href="ihub.jpg">
+
+	</head>
+	<body>
+		<font color="blue" size="30" face="monospace">  
+			This is font tag 
+		</font>
+	</body>
+</html>
+
+breakline tag
+-------------
+A <br> tag is used to break the line in a web page.
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--   title -->
+		<title>MyPage!</title>
+
+		<!-- favicon -->
+		<link rel="icon" href="ihub.jpg">
+
+	</head>
+	<body>
+		<i>This is italic tag</i>
+		<br>
+		<b>This is bold tag</b>
+	</body>
+</html>
+
+Horizontal line
+----------------
+A <hr> tag is used to display horizontal line in a web page.
+ex:
+	
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--   title -->
+		<title>MyPage!</title>
+
+		<!-- favicon -->
+		<link rel="icon" href="ihub.jpg">
+
+	</head>
+	<body>
+		<i>This is italic tag</i>
+		<hr>
+		<b>This is bold tag</b>
+	</body>
+</html>
+
+marquee tag
+-----------
+A <marquee> tag is used to scroll the text.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--   title -->
+		<title>MyPage!</title>
+
+		<!-- favicon -->
+		<link rel="icon" href="ihub.jpg">
+
+	</head>
+	<body>
+		<marquee> This is HTML class for Freshers </marquee>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

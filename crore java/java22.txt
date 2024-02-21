@@ -1,0 +1,653 @@
+Anonymous Array
+================
+Sometimes we will declare an array without name.
+
+Such type of nameless array is  called anonymous array.
+
+The main objective of anonymous array is just for instance use.
+
+We can declare anonymous array as follow.
+
+ex:
+	new int[]{10,20,30};
+	new int[][]{{1,2,3},{4,5,6}};
+
+ex:1
+-----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//caller method
+		sum(new int[]{10,20,30});
+	}
+	//callie method
+	public static  void  sum(int[] arr)
+	{
+		int sum=0;
+		for(int i:arr)
+		{
+			sum=sum+i;
+		}
+		System.out.println(sum);//60
+	}
+}
+
+ex:2
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//caller method
+		System.out.println(sum(new int[]{10,20,30}));
+	}
+	//callie method
+	public static  int  sum(int[] arr)
+	{
+		int sum=0;
+		for(int i:arr)
+		{
+			sum=sum+i;
+		}
+		return sum;
+	}
+}
+
+
+OOPS
+======
+OOPS stands for Object Oriented Programming System/Structure.
+
+Object oriented technology
+--------------------------
+A technology which provides very good environment to represent our data in the form of objects is called object oriented technology.
+
+A technology said to be object oriented if it supports following features.
+
+ex:
+	class
+	object
+	Abstraction
+	Encapsulation
+	Inheritance  and 
+	polymorphism
+
+class
+=======
+A class is a collection of data members and behaviours.
+
+Here data members means variables, properties and fields.
+
+Here behaviours means methods, actions and characteristics.
+
+In general, a class is a collection of variables and methods.
+
+It is a blue print of an object.
+
+We can declare a class as follow.
+
+syntax:
+	optional 
+	 |
+	modifier class class_name <extends> Parent_classname
+				  <implements> interface_name
+	{
+		-
+		-// variables
+		-// methods
+		-
+	}
+A class will accept following modifiers.
+ex:
+	default
+	public
+	final 
+	abstract
+	
+Q)What is the difference between default class and public class?
+
+default class
+-------------
+If we declare any class as default then we can access that class within the package.
+ex:
+	class Test
+	{
+		-
+		- // variables and methods 
+		-
+	}
+
+public class
+-----------
+If we declare any class as public then we can access that class within the package and outside of the package.
+ex:
+	public class Test
+	{
+		-
+		- //variables and methods 
+		-
+	}
+
+Q)What is final class?
+
+If we declare any class as final then creating child class is not possible.
+
+or
+
+If we declare any class as final then extending some other class is not possible.
+
+ex:
+
+	final  class  A
+	{
+		-
+		-
+	}
+	class B extends A   ---> invalid 
+	{
+	}
+
+Q)What is abstract class?
+
+If we declare any class as abstract then creating object for that class is not possible.
+
+ex:
+	abstract class Test
+	{
+		-
+		-
+	}
+	Test t=new Test(); // invalid 
+
+
+object
+=========
+It is a instance of a class.
+
+Here instance means allocating memory for our data members.
+
+Object is a outcome of a blue print.
+
+Memory space will be created when we create an object.
+
+We can declare object as follow.
+
+syntax:
+	class_name reference_variable=new constructor();
+
+ex:
+	Test t=new Test();
+
+It is possible to create more then one object in a single class.
+
+ex:
+----
+public class Test  
+{
+	public static void main(String[] args) 
+	{
+		Test t1=new Test();
+		Test t2=new Test();
+		Test t3=new Test();
+		System.out.println(t1.hashCode());
+		System.out.println(t2.hashCode());
+		System.out.println(t3.hashCode());
+
+		System.out.println(t1);//Test@Hexadecimal 
+		System.out.println(t2.toString());
+		System.out.println(t3.toString());
+	}
+}
+
+hashCode()
+===========
+It is a method present in Object class.
+
+For every object , JVM will create a unique identification number i.e hash code. In order to read the hash code of an object we need to use hashCode() method.
+
+Diagram: java22.1
+
+toString()
+============
+It is a method present in Object class.
+
+Whenever we are trying to display any object reference, directly or indirectly toString() method will be executed.
+
+
+
+Q)What is Object class?
+
+Object class present in java.lang package.
+
+It is a parent class for every java class.
+
+Object class contains following methods.
+
+ex:
+	cmd> javap    java.lang.Object 
+
+	getClass()
+	equals()
+	hashCode()
+	toString()
+	notify()
+	notifyAll()
+	wait()
+	and etc.
+
+ex:
+----
+import java.util.*;
+public class Test  
+{
+	public static void main(String[] args) 
+	{
+		Test t=new Test();
+		System.out.println(t.getClass());//class Test
+
+		Date d=new Date();
+		System.out.println(d.getClass());//class java.util.Date
+	}
+}
+
+Data Hiding
+===========
+Our internal data should not go out directly.
+
+It means outside person must not access our data directly.
+
+Using private modifier we can implements data hiding.
+
+The main objective of data hiding is to provide security.
+
+ex:
+	class Account
+	{
+		private double balance;
+		-	
+		-
+		-
+	}
+
+
+
+Abstraction
+===========
+Hiding internal implementation and highlighting the set of services is called abstraction.
+
+By using abstract classes and interfaces we can implements abstraction.
+
+
+The best example of abstraction is GUI ATM machine where bank people will hide internal implementation and highlights the set of services like banking, withdrawl, ministatement and etc.
+
+The main advantages of abstraction are .
+
+1)It gives security because it will hide internal implementation from the 
+  outsider.
+
+2) Enhancement becomes more easy because without effecting the enduser 
+  they can perform any changes in our internal system.
+
+3) It provides flexibility to the enduser to use the system.
+
+4) It improves maintainability of an application.
+
+Ecapsulation
+=============
+The process of encapsulating or grouping variables and it's associate methods in a single entity is called encapsulation.
+
+Diagram: java22.2
+
+A class is said to be encapsulated class if it supports data hiding and abstraction.
+
+In encapsulation for every variable we need to write setter and getter method.
+
+Diagram: java22.3
+
+The main advantages of encapsulation are.
+
+1) It gives security.
+
+2) Enhancement becomes more easy.
+
+3) It provides flexibility to the enduser to use the system.
+
+4) It improves maintainability of an application.
+
+The main disadvantage of encapsulation is , it will increase the length of our code and slowdown the execution process.
+
+approach:1
+-----------
+class Student 
+{
+	private int studId;
+	private String studName;
+	private double studFee;
+
+	//getter methods
+	public int getStudId()
+	{
+		return studId;
+	}
+	public String getStudName()
+	{
+		return studName;
+	}
+	public double getStudFee()
+	{
+		return studFee;
+	}
+
+	//setter methods 
+	public void setStudId(int studId)
+	{
+		this.studId=studId;
+	}
+	public void setStudName(String studName)
+	{
+		this.studName=studName;
+	}
+	public void setStudFee(double studFee)
+	{
+		this.studFee=studFee;
+	}
+
+	public static void main(String[] args)
+	{
+		Student s=new Student();
+		s.setStudId(101);
+		s.setStudName("Alan");
+		s.setStudFee(d);1000
+
+		System.out.println("Student Id :"+s.getStudId());
+		System.out.println("Student Name :"+s.getStudName());
+		System.out.println("Student Fee :"+s.getStudFee());
+	}
+}
+
+approach:2
+--------
+class Student 
+{
+	private int studId;
+	private String studName;
+	private double studFee;
+
+	//getter methods
+	public int getStudId()
+	{
+		return studId;
+	}
+	public String getStudName()
+	{
+		return studName;
+	}
+	public double getStudFee()
+	{
+		return studFee;
+	}
+
+	//setter methods 
+	public void setStudId(int studId)
+	{
+		this.studId=studId;
+	}
+	public void setStudName(String studName)
+	{
+		this.studName=studName;
+	}
+	public void setStudFee(double studFee)
+	{
+		this.studFee=studFee;
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		Student s=new Student();
+		s.setStudId(101);
+		s.setStudName("Alan");
+		s.setStudFee(1000);
+
+		System.out.println("Student Id :"+s.getStudId());
+		System.out.println("Student Name :"+s.getStudName());
+		System.out.println("Student Fee :"+s.getStudFee());
+	}
+}
+
+Assignment
+=========
+Q)Write a java program to display given matrix in spiral form?
+
+input:
+	1 2 3 
+	4 5 6
+	7 8 9
+
+output:
+	1 2 3 6 9 8 7 4 5 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

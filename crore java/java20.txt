@@ -1,0 +1,407 @@
+Q)Write a java program to display duplicate elements from given array?
+
+input:
+	4 3 7 1 9 3 7 6 4
+
+output:
+	4 3 7  
+
+ex:
+
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,3,7,1,9,3,7,6,4};
+
+		//duplicate elements
+		for(int i=0;i<arr.length;i++)
+		{
+			for(int j=i+1;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j])
+				{
+					System.out.print(arr[i]+" ");
+				}
+			}
+		}
+	}
+}
+
+Q)Write a java program to display unique elements from given array?
+
+input:
+	4 3 7 1 9 3 7 6 4
+
+output:
+	1 9 6  
+
+ex:
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,3,7,1,9,3,7,6,4};
+
+		//unqiue elements
+		for(int i=0;i<arr.length;i++)
+		{
+			int cnt=0;
+			for(int j=0;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j])
+				{
+					cnt++;
+				}
+			}
+			if(cnt==1)
+			{
+				System.out.print(arr[i]+" ");
+			}
+		}
+	}
+}
+
+Q)Write a java program to display highest element from given array?
+
+input:
+	4 6 1 2 9 7 3 
+
+output:
+	9 
+
+
+Approach1
+----------
+import java.util.Arrays;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,6,1,2,9,7,3};
+
+		Arrays.sort(arr); // 1 2 3 4 6 7 9 
+
+		System.out.println(arr[arr.length-1]);
+	}
+}
+
+Approach2
+--------
+
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,6,1,2,9,7,3};
+
+		int big=arr[0];
+
+		//for each loop
+		for(int i:arr)
+		{
+			if(i>big)
+			{
+				big=i;
+			}
+		}
+		System.out.println(big);		
+	}
+}
+
+Q)Write a java program to display least element from given array?
+
+input:
+	4 6 1 2 9 7 3 
+
+output:
+	1
+
+approach1
+-----------
+import java.util.Arrays;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,6,1,2,9,7,3};
+
+		Arrays.sort(arr);	
+		
+		System.out.println(arr[0]);//1
+	}
+}
+
+
+approach2
+----------
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,6,1,2,9,7,3};
+
+		int small=arr[0];
+
+		//for each loop
+		for(int i:arr)
+		{
+			if(i<small)
+			{
+				small=i;
+			}
+		}
+		System.out.println(small);		
+	}
+}
+
+Q)Write a java program to find out leader elements from given array?
+
+input:
+	4  6  64  13  3  9  
+
+output:
+	9  13   64	
+
+ex:
+
+
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,6,64,13,3,9};
+
+		int max=arr[arr.length-1];
+		
+		System.out.print(max+" ");
+
+		for(int i=arr.length-2;i>=0;i--)
+		{
+			if(arr[i]>max)
+			{
+				max=arr[i];
+				System.out.print(max+" ");
+			}
+		}
+	}
+}
+
+Write a java program to find out missing element from given array?
+
+input:
+	6 3 1 5 2 7 
+
+output:
+	4 
+
+ex:
+---
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={6,3,1,5,2,7};
+		
+		int sum_of_arr_ele= arr.length+1; 
+
+		int sum=(sum_of_arr_ele*(sum_of_arr_ele+1))/2;
+		
+		for(int i:arr)
+		{
+			sum=sum-i;
+		}
+		System.out.println(sum);
+	}
+}
+
+Q)Write a java program to segregate 0's and 1's in a given array?
+
+input:
+	1 0 1 0 0 1 1 0 0 1 
+
+output:
+	0 0 0 0 0 1 1 1 1 1 
+
+approach1
+----------
+import java.util.Arrays;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={1,0,1,0,0,1,1,0,0,1};
+
+		Arrays.sort(arr);
+	
+		for(int i:arr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+approach2
+----------
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={1,0,1,0,0,1,1,0,0,1};
+
+		int[] resArr=new int[arr.length];
+
+		//for each loop
+		int j=0;
+		for(int i:arr)
+		{
+			if(i==0)
+			{
+				resArr[j++]=i;
+			}
+		}
+
+		//inserting 1's 
+		while(j<arr.length)
+		{
+			resArr[j++]=1;
+		}
+
+		//display the elements
+		for(int i:resArr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+Q)Write a java program to find out most repeating of an element in given array?
+
+input:
+	3 5 1 7 1 4 4 8 1 2 1 4 3 1
+
+output:
+	1 element is repeating for 5 times 	
+
+ex:
+
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={3,5,1,7,1,4,4,8,1,2,1,4,3,1};
+
+		int maxCount=0;
+
+		int element=0;
+
+		for(int i=0;i<arr.length;i++)
+		{
+			int cnt=0;
+
+			for(int j=0;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j])
+				{
+					cnt++;
+				}
+			}
+			if(maxCount<cnt)
+			{
+				maxCount=cnt;
+				element=arr[i];
+			}
+		}
+		System.out.println(element+" element is repeating for "+maxCount+" times");
+	}
+}
+
+Q)Write a java program to display prime elements from given array?
+
+input:
+	5  9  13  3  17   20  4  
+
+output:
+	5  13  3  17
+
+ex:
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={5,9,13,3,17,20,4};
+
+		for(int i=0;i<arr.length;i++)
+		{
+			boolean flag=true;
+			for(int j=2;j<=arr[i]/2;j++)
+			{
+				if(arr[i]%j==0)
+				{
+					flag=false;
+					break;
+				}
+			}
+			if(flag==true)
+				System.out.print(arr[i]+" ");
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

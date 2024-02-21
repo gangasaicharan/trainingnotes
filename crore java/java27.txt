@@ -1,0 +1,320 @@
+Abstract class
+==============
+Abstract class is a collection of zero or more abstract methods and concrete methods.
+
+A abstract keyword is applicable for classes and methodes but not for variables.
+
+It is not possible to create object for abstract classes.
+
+To write the implementation of abstract methods of a abstract class we will use sub classes.
+
+By default every abstract method is a public and abstract.
+
+Abstract class contains only instance variables.
+
+If we know partial implementation then we need to use abstract class.
+
+syntax:
+-------
+	abstract class class_name
+	{
+		- // instance variables
+		- //abstract methods
+		- //concrete methods 
+	}
+
+ex:
+----
+abstract class Plan
+{
+	//instance variable
+	protected double rate;
+
+	//abstract method 
+	public abstract void getRate();
+
+	//concrete method
+	public void calculateBillAmt(int units)
+	{
+		System.out.println("Total Units :"+units);
+		System.out.println("Total Bill :"+(rate*units));
+	}
+}
+
+class DomesticPlan extends Plan 
+{
+	public void getRate()
+	{
+		rate=2.5d;
+	}
+}	
+class CommercialPlan extends Plan
+{
+	public void getRate()
+	{
+		rate=5.0d;
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		DomesticPlan dp=new DomesticPlan();
+		dp.getRate();
+		dp.calculateBillAmt(250);
+
+		CommercialPlan cp=new CommercialPlan();
+		cp.getRate();
+		cp.calculateBillAmt(250);
+
+
+	}
+}
+
+
+Interview Questions
+====================
+
+Q) What is Interface ? 
+
+Interface is a collection of abstract methods, default methods and 
+static methods. 
+
+
+Q)What is marker interface?
+
+Interface which does not have any methods or constants is called mark interface.
+
+In general, empty interface is called marker interface.
+
+By using marker interface we will get some ability to do.
+
+We have following list of marker interfaces in java.
+ex:
+	Serializable
+	Cloneable 
+	Remote 
+	and etc.
+
+Q)What is the difference between interface and abstract class ?
+
+interface				abstract class
+---------				---------------
+To declare interface we will use 	To declare abstract class we will 
+interface keyword.			use abstract keyword.
+
+Interface is a collection of abstract	It is a collection of abstract methods
+methods, default methods and static	and concrete methods.
+methods.
+
+Interface contains only constants.	Abstract class contains instance 
+					variables.
+
+We can achieve multiple inheritance.	We can't achieve multiple inheritance.
+
+We can't declare blocks.		We can declare blocks.
+
+We can't declare constructor.		We can declare constructors.
+
+To write the implementation of abstract	To write the implementation of 
+methods of interface we will use 	abstract methods of abstract class
+implementation class.			we will use sub classes.
+
+If we know specification then we need 	If we know partial implementation
+to use interface.			then we need to use abstract class.
+
+
+API 
+=====
+API stands for Application Programming Interface.
+
+API is a collection of packages.
+
+It is a base for the programmer to develop software applications.
+
+We have three set of API's.
+
+1) Predefined API 
+---------------
+Built-In API is called predefined API.
+ex:
+	https://docs.oracle.com/javase/8/docs/api/
+
+2) Userdefined API
+------------------
+API which is created by the user based on the application requirement
+is called userdefined API.
+ 
+
+3) Third party API 
+------------------
+API which is created by third party vendor is called third party API.
+ex:
+	JAVAZOOM API 
+	IText API 
+	and etc.
+	
+Package
+=========
+Package is a collection of classes , interfaces, enums and annotations.
+
+Enum is a special class and annotation is a special interface.
+
+In general, a package is a collection of classes and interfaces.
+
+Package is also known as folder or a directory.
+
+We have two types of packages in java.
+
+1)Predefined packages 
+
+2)Userdefined packages 
+
+1)Predefined packages 
+----------------------
+Built-In packages are called predefined packages.
+ex:
+	java.lang
+	java.io
+	java.util
+	java.time
+	java.text
+	java.util.stream
+	java.sql
+	javax.servlet 
+	and etc.
+
+2)Userdefined packages 
+---------------------
+Packages which are created by the user based on the application requirement are called userdefined packages.
+
+syntax:
+	package  <package_name>;
+
+ex:
+
+package com.ihub.www;
+import java.util.Calendar;
+class Test
+{
+	public static void main(String[] args)
+	{
+		Calendar c=Calendar.getInstance();
+		//convert time to 24 hours
+		int h=c.get(Calendar.HOUR_OF_DAY);
+		if(h<12)
+			System.out.println("Good Morning");
+		else if(h<16)
+			System.out.println("Good Afternoon");
+		else if(h<20)
+			System.out.println("Good Evening");
+		else
+			System.out.println("Good Night");
+	}
+}
+We can compile above program by using below command.
+ex:
+		current directory 
+		     |	
+	javac   -d   .    Test.java
+		|
+  	destination 
+	folder 
+
+We can execute above program by using below command.
+ex:
+	java   com.ihub.www.Test 
+			|     |
+		package name  class name 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

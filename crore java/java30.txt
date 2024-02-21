@@ -1,0 +1,451 @@
+Q)Write a java program to perform right rotation of a string?
+
+input:
+	str="ihubtalent"; 
+
+	cnt=2;	
+
+output:
+	ubtalentih
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="ihubtalent";
+
+		int cnt=2;
+
+		String res1=str.substring(0,cnt);
+
+		String res2=str.substring(cnt,str.length());
+
+		System.out.println(res2+res1);
+
+	}
+}
+
+Q)Write a java program to perform left rotation of a string?
+
+input:
+	str="ihubtalent"; 
+
+	cnt=2;	
+
+output:
+	ntihubtale
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="ihubtalent";
+
+		int cnt=2;
+
+		String res1=str.substring(0,str.length()-2);
+	
+		String res2=str.substring(str.length()-2,str.length());
+
+		System.out.println(res2+res1);
+
+	}
+}
+
+Q)Write  a java program to remove special characters from given string?
+
+input:
+	str="IH@UB_TA$L#ENT";
+output:
+	IHUBTALENT
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="IH@UB_TA$L#ENT";
+
+		str=str.replaceAll("[^A-Za-z0-9]","");
+
+		System.out.println(str);
+	}
+}
+
+
+Q)Write a java program to display the string in given format?
+
+input:
+	This is Java class For students
+
+output:
+	This Java For 
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="This is Java class For students";
+
+		String[] sarr=str.split(" ");
+
+		String result="";
+
+		//for each loop
+		for(String s:sarr)
+		{
+			char ch=s.charAt(0);
+			if(ch>='A' && ch<='Z')
+			{
+				result+=s+" ";
+			}
+		}
+
+		System.out.println(result);
+	}
+}
+
+
+Assignment
+==========
+Q)Write a java program to display given strings are palindrome?
+
+input:
+	racar is for madam 
+
+output:
+	racar  madam 
+
+
+
+StringBuffer
+============
+If our content change frequently then it is never recommanded to use String object because for every change a new object will be created such behaviour is called immutability of an object.
+
+To overcome this limitation Sun Micro System introduced StringBuffer concept.
+
+In StringBuffer all the required changes will be done in a single object only.
+
+constructor
+------------
+
+1)StringBuffer sb=new StringBuffer()
+-------------------------------------
+It will create StringBuffer object with default initial capacity of 16.
+
+If capacity reaches to maximum capacity then new capacity will be created with below formulea.
+ex:
+	capacity = current_capacity+1*2;
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb=new StringBuffer();
+
+		System.out.println(sb.capacity());//16
+
+		sb.append("abcdefghijklmnop");
+
+		System.out.println(sb.capacity());//16
+
+		sb.append("qr");
+
+		System.out.println(sb.capacity());//16+1*2= 34
+
+	}
+}
+
+2)StringBuffer sb=new StringBuffer(int initialcapacity)
+--------------------------------------------------
+It will create StringBuffer object with specified initial capacity.
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb=new StringBuffer(19);
+
+		System.out.println(sb.capacity());//19
+
+	}
+}
+
+2)StringBuffer sb=new StringBuffer(String str)
+--------------------------------------------------
+It will create StringBuffer object which is equivalent to String.
+
+Here capacity will be created with below formulea.
+
+ex:
+	capacity = s.length() + 16
+
+ex:
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb=new StringBuffer("bhaskar");
+
+		System.out.println(sb.capacity());//7+16=23
+
+	}
+}
+
+
+Q)Write a java program to display reverse of a string?
+
+input:
+	hello
+
+output:
+	olleh 
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="hello";
+
+		StringBuffer sb=new StringBuffer(str);
+
+		str=sb.reverse().toString();
+
+		System.out.println(str);
+	}
+}
+
+Q)Write a java program to check given string is palindrome or not?
+
+input:
+	racar 
+
+output:
+	It is palindrome string 
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="racar";
+
+		StringBuffer sb=new StringBuffer(str);
+
+		String rev=sb.reverse().toString();
+
+		if(str.equals(rev))
+			System.out.println("It is palindrome string");
+		else
+			System.out.println("It is not palindrome string");
+	}
+}
+
+StringBuilder
+=============
+StringBuilder is exactly same as StringBuffer with following differences.
+
+StringBuffer				StringBuider
+--------------				--------------
+All the methods present in StringBuffer	No method present in StringBuilder
+are synchronized.			is synchronized.
+
+At a time only one thread is allowed to	Multiple threads are allowed to 
+execute StringBuffer object.Hence we 	execute StringBuilder object.Hence
+can achieve thread safety.		we can't achieve thread safety.
+
+Waiting time of a thread will increase 	There is no waiting time of a thread
+effectively performance is low.		effectively performance is high.
+
+It is introduced in 1.0v.		It is introduced in 1.5v.
+
+
+StringTokenizer 
+==============
+StringTokenizer is a class which present in java.util package.
+
+It is used to tokenize the String based on regular expression.
+
+We can declare StringTokenizer class as follow
+
+ex:
+	StringTokenizer st=new StringTokenizer(String str,RegEx re);
+
+StringTokenizer class contains following methods.
+ex:
+	public boolean hasMoreTokens()
+	public String nextToken()
+	public boolean hasMoreElements()
+	public Object nextElement()
+	public int countTokens() 
+	
+ex:1
+-----
+import java.util.StringTokenizer;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class");
+
+		System.out.println(st.countTokens());
+	}
+}
+Note: Here default regular expression is space.
+
+ex:2
+---
+import java.util.StringTokenizer;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class"," ");
+
+		while(st.hasMoreTokens())
+		{
+			String str=st.nextToken();
+
+			System.out.println(str);
+		}
+	}
+}
+
+ex:3
+----
+import java.util.StringTokenizer;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class"," ");
+
+		while(st.hasMoreElements())
+		{
+			String str=(String)st.nextElement();
+
+			System.out.println(str);
+		}
+	}
+}
+
+ex:4
+-----
+import java.util.StringTokenizer;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("9,99,999",",");
+
+		while(st.hasMoreElements())
+		{
+			String str=(String)st.nextElement();
+
+			System.out.println(str);
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

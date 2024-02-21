@@ -1,0 +1,427 @@
+Nested Tags in HTML
+===================
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<center>
+			<h1>
+				<font color="blue">
+					Welcome to HTML classes
+				</font>
+			</h1>
+		</center>
+	</body>
+</html>
+
+Phrase tags in HTML
+===================
+Phrase tags are special purpose tags which are used to defined structural meaning to block of code or text.
+
+We have following list phrase tags in html.
+
+
+1) abbreviation - <abr> 
+
+2) definition   - <dfn> 
+
+3) short quote  - <q> 
+
+4) address 	- <address>
+
+5) code 	- <code>
+
+6) keyboard	- <kbd> 
+
+7) strike 	- <strike> or <s> 
+
+and etc.
+
+
+1) abbreviation - <abr> 
+------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<abr title="HyperText Markup Language"> 
+				HTML 
+		</abr> 
+		is a markup language and it is a case insensitive language.
+		
+	</body>
+</html>
+
+2) definition   - <dfn>
+------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<dfn>HTML</dfn> 
+		is a markup language and it is a case insensitive language.
+		
+	</body>
+</html>
+
+3) short quote  - <q> 
+------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<q>I love html coding because it is easy</q>	
+	</body>
+</html>
+
+4) address 	- <address>
+----------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<address>
+			1-4-78/1 , Nilgiri Block, Ameerpet,Hyderabad.
+		</address>	
+	</body>
+</html>
+
+5) code 	- <code>
+------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<code>
+			void main()
+			{
+				clrscr();
+				printf("Hello");
+				getch();
+			}
+		</code>	
+	</body>
+</html>
+
+6) keyboard	- <kbd> 
+-------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<p> To copy press CTRL+C button </p>
+
+		<p> To copy press <kbd>CTRL+C</kbd> button </p>
+	</body>
+</html>
+
+7) strike 	- <strike> or <s> 
+----------------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<h1>
+			<s>
+				This is Java Class
+			</s>
+		</h1>
+	</body>
+</html>
+
+HTML images
+============
+A <img> tag is used to display the images in a web page.
+
+It is a opening tag with attributes and does not have any closing tag.
+
+A <img> tag contains following attributes.
+
+1) src 	-	It is used to locate a file.
+
+2) alt 	-	It will display alternate message if image is not found.
+
+3) width - 	It is used to set the width to the image.
+
+4) height - 	It is used to set the height to the image.
+
+We have following list of images.
+
+Format			Abbreviation
+-------			------------
+JPEG			Joint Photographic Expert Group
+
+PNG			Portable Network Graphics
+
+SVG			Scalable Vector Graphics
+
+GIF 			Graphical Interchange Format.
+
+and etc.
+
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<img src="images/rock.jpg" />
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<img src="images/brock.jpg" alt="No Image Found"/>
+	</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<img src="images/rock.jpg" 
+				alt="No Image Found"
+					width="200px"
+					   height="200px" />
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQkvL0Ec1NgCsW2Uk6SFeBkfygCxb6AKtU-g&usqp=CAU" 
+
+				alt="No Image Found"
+					width="400px"
+					   height="400px" />
+	</body>
+</html>
+
+Hyperlink in HTML
+================
+A <a> anchor tag is used to display hyperlink in a web page.
+
+Anchor tag contains "href" attribute to navigate to other resources.
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<h1>
+			<a href="http://www.facebook.com/login"> Facebook </a>
+
+		</h1> 
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<h1>
+			<a href="http://www.facebook.com/login"
+					target="_self"> 
+				Facebook 
+			</a>
+
+		</h1> 
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<h1>
+			<a href="http://www.facebook.com/login"
+					target="_blank"> 
+				Facebook 
+			</a>
+
+		</h1> 
+	</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<center>
+			<a href="https://en.wikipedia.org/wiki/Dwayne_Johnson"
+					target="_blank">
+ 
+				<img src="images/rock.jpg" 
+					alt="no image found"
+				  	width="300px"
+				   	height="300px" /> 
+			</a>
+		</center>
+	</body>
+</html>
+
+
+HTML Entity
+==============
+HTML entity is a groupd of characters starts with '&' and ends with semicolon(;).
+
+HTML entities are used to display reversed characters or hidden characters in html.
+
+We have following list of html entities.
+ex:
+	HTML entity	character 
+	----------	----------
+	&gt;		>
+	&lt;		< 
+	&laquo;		<<
+	&raquo;		>>
+	&nbsp;		(1 space)
+	&copy;		
+	and etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

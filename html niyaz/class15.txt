@@ -1,0 +1,350 @@
+FontAwsome Icons
+=================
+If we want to take icons in a CSS then we need to use fontawesome icons.
+
+All fontawesome icons are font based.
+
+To work with fontawesome icons we need to add below CDN link.
+
+ex:
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+ex:1
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">		
+	</head>
+	<body> 
+				<i class="fa fa-heart"></i>
+				<i class="fa fa-home"></i>
+				<i class="fa fa-phone"></i>
+	</body>
+</html>
+
+ex:2
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">		
+	</head>
+	<body> 
+				<i class="fa fa-heart" style="font-size:30px;color:red;"></i>
+				<i class="fa fa-home" style="font-size:30px;color:blue;"></i>
+				<i class="fa fa-phone" style="font-size:30px;color:green;"></i>
+	</body>
+</html>
+
+ex:3
+---
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">		
+	</head>
+	<body> 
+		<i class="fa fa-facebook" style="color:blue;"></i>
+				
+		<i class="fa fa-instagram" style="color:pink;"></i>
+				
+		<i class="fa fa-twitter" style="color:lightblue;"></i>
+				
+		<i class="fa fa-youtube" style="color:Red;"></i>
+				
+		<i class="fa fa-linkedin" style="color:blue;"></i>
+	</body>
+</html>
+
+
+CSS Cursor property
+===================
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				text-align:center;
+			}
+			h1:hover
+			{
+				cursor:pointer;
+			}
+		</style>		
+	</head>
+	<body> 
+				<h1>Mouse Over Here </h1>
+	</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				text-align:center;
+			}
+			h1:hover
+			{
+				cursor:zoom-in;
+			}
+		</style>		
+	</head>
+	<body> 
+				<h1>Mouse Over Here </h1>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				text-align:center;
+			}
+			h1:hover
+			{
+				cursor:zoom-out;
+			}
+		</style>		
+	</head>
+	<body> 
+				<h1>Mouse Over Here </h1>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				text-align:center;
+			}
+			h1:hover
+			{
+				cursor:progress;
+			}
+		</style>		
+	</head>
+	<body> 
+				<h1>Mouse Over Here </h1>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				text-align:center;
+			}
+			h1:hover
+			{
+				cursor:copy;
+			}
+		</style>		
+	</head>
+	<body> 
+				<h1>Mouse Over Here </h1>
+	</body>
+</html>
+
+CSS Form
+=========
+Form is used to accept the values from the enduser.
+
+It will send the data to server or database for processing.
+
+ex:
+
+Task3
+|
+|-----css
+	|
+	|---mystyles.css
+|-----images
+	|
+	|---micky.png
+|
+|-----index.html 
+
+index.html
+----------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage</title>
+		
+		<!-- add external css -->
+		<link rel="stylesheet" href="css/mystyles.css">
+		
+	</head>
+	<body>
+		<div class="container">
+			<div class="box1">
+				<img src="images/user.png"/>
+				
+				<form action="">
+<input type="text" name="t1" autocomplete="off" placeholder="username" required/> <br>
+					<input type="password" name="t2" placeholder="password" required/> <br>
+					<input type="submit" value="Login"/>
+				</form>
+				
+			</div>
+			<div class="box2">
+				<img src="images/micky.png"/>
+			</div>
+		</div>
+	</body>
+</html>
+
+mystyles.css
+-------------
+*
+{
+	margin:0;
+	padding:0;
+}
+body
+{
+	height:100vh;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	background: linear-gradient(yellow,red);
+}
+.container
+{
+	width:800px;
+	height:400px;
+	box-sizing:border-box;
+}
+.container .box1
+{
+	width:400px;
+	height:400px;
+	box-sizing:border-box;
+	float:left;
+	box-shadow:2px 2px 12px 6px #FFF;
+}
+.container .box1 img
+{
+	width:100px;
+	height:100px;
+	display:block;
+	margin:20px auto;
+	border-radius:50%;
+	border:1px solid black;
+	
+}
+.container .box1 input[type="text"],input[type="password"]
+{
+	width:300px;
+	height:35px;
+	display:block;
+	margin:10px auto;
+	border:2px solid #FFF;
+	background-color:transparent;
+	border-radius:15px;
+}
+.container .box1 input[placeholder]
+{
+	text-align:center;
+	color:#FFF;
+	font-size:20px;
+}
+
+
+.container .box1 input[type="submit"]
+{
+	display:block;
+	margin:10px auto;
+	width:100px;
+	padding:10px;
+	border:none;
+	font-family: cursive;
+	font-size:15px;
+	background-color:#FFF;
+	transition:1s all linear;
+}
+.container .box1 input[type="submit"]:hover
+{
+	width:200px;
+	border-radius:25px;
+	border:1px solid #FFF;
+	background:none;
+	color:#FFF;
+	cursor:pointer;
+}
+
+.container .box2
+{
+
+	width:400px;
+	height:400px;
+	box-sizing:border-box;
+	float:right;
+	box-shadow:2px 2px 12px 6px #FFF;
+}
+
+Assignment
+============
+Diagram: class15.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

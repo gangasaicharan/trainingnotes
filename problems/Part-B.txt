@@ -1,0 +1,121 @@
+
+Part B 
+------
+1) number of occurance of a given character in a string?
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="aabbcbcddbc";
+
+		int maxCount=0;
+		char character=' ';
+
+		for(int i=0;i<str.length();i++)
+		{
+			int cnt=0;
+
+			for(int j=0;j<str.length();j++)
+			{
+				if(str.charAt(i)==str.charAt(j))
+				{
+					cnt++;
+				}
+			}
+			if(maxCount<cnt)
+			{
+				maxCount=cnt;
+				character=str.charAt(i);
+			}
+		}
+		System.out.println(character+" is repeating for "+maxCount+" times");
+	
+	}
+}
+
+
+2) Write a java program to find out longest consecutive elements sequences.
+
+input:
+	2,5,3,4,13,26,7,9,33,8
+
+output:
+	2,3,4,5
+
+import java.util.Arrays;
+import java.util.HashSet;
+
+public class Test {
+    public static void main(String[] args) {
+        int[] inputArray = {2, 5, 3, 4, 13, 26, 7, 9, 33, 8};
+        findLongestConsecutiveSequence(inputArray);
+    }
+
+    private static void findLongestConsecutiveSequence(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            System.out.println("Input array is empty");
+            return;
+        }
+
+        HashSet<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            set.add(num);
+        }
+
+        int start = 0;
+        int maxLength = 0;
+        int currentLength = 0;
+
+        for (int num : nums) {
+            if (!set.contains(num - 1)) {
+                // Current element is the start of a potential sequence
+                int currentNum = num;
+                currentLength = 1;
+
+                while (set.contains(currentNum + 1)) {
+                    currentNum++;
+                    currentLength++;
+                }
+
+                if (currentLength > maxLength) {
+                    maxLength = currentLength;
+                    start = num;
+                }
+            }
+        }
+
+        // Construct the result sequence
+        int[] resultSequence = new int[maxLength];
+        for (int i = 0; i < maxLength; i++) {
+            resultSequence[i] = start + i;
+        }
+
+        System.out.println("Input: " + Arrays.toString(nums));
+        System.out.println("Output: " + Arrays.toString(resultSequence));
+    }
+}
+
+
+
+
+3) number of odd occuring in array 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={5,7,2,4,6,9}
+
+		int cnt=0;
+		for(int i:arr)
+		{
+			if(i%2!=0)
+			{
+				cnt++;
+			}
+		}
+		System.out.println(cnt);
+	}
+}
+

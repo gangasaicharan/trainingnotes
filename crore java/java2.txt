@@ -1,0 +1,48 @@
+History of Java
+================
+In 1990, Sun Micro System took one project to develop a software called consumer electronic device which can be controlled by a remote like setup box.That time project was called Stealth project but later it is renamed to Green project.
+
+James Gosling, Mike Sheridan, and Patrick Naughton were to develop this project and they have met in a place called Aspan/Colarado to start the work with graphic system.
+James Gosling decided to use C and C++ languages to develop the project.But the problem what they have faced is C and C++ languages are system dependent. Then James Gosling decided why don't we create our own programming language which is system independent. 
+
+In 1991, They have developed one programming language called an OAK. OAK means strength , itself is a coffee seed name and it is a national tree for many contries like Germany, France, USA and etc.
+
+Later in 1995, they have renamed OAK to Java.Java is a island of an indonesia where first coffee of seed was produced and during the development of project , they were consuming lot of coffee's.Hence the symbol of java is a cup of coffee with saucer.
+
+In 2010, Oracle Corporation took/acquire Sun Micro System company.
+
+Now java is a product of Oracle Corporation company.
+
+
+Interview questions
+==================
+1) Who is the creator of java?
+
+  	James Gosling 
+
+
+2) Java originally known as ___ ?
+
+	OAK 
+
+3) Java is a product of which company?
+
+	Oracle Corporation 
+
+4) In which year java was developed?
+
+	In 1995.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
